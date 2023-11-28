@@ -111,7 +111,8 @@ function matrix.multiplyXYZW(matrix1, x, y, z, w) end
 
 --- Returns the rotation required to face an X Z vector
 --- @param x number 
---- @param z number 
+--- @param z number
+--- @return number required_rotation
 function matrix.rotationToFaceXZ(x, z) end
 
 
@@ -1633,7 +1634,8 @@ function server.getVehicleFireCount(vehicle_id) end
 --- @return boolean is_success
 function server.setVehicleTooltip(vehicle_id, text) end
 
---- Applies impact damage to a vehicle at the specified voxel location (cannot use negative values, so cannot repair.)
+--- Applies impact damage to a vehicle at the specified voxel location
+--- <br>Negative values repair the vehicles instead of damaging it
 --- @param vehicle_id number The ID of the vehicle to apply damage to
 --- @param amount number The amount of damage to apply (0-100)
 --- @param voxel_x number The voxel's X position to apply damage to
