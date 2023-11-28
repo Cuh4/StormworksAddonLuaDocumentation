@@ -1,3 +1,0 @@
--- TODO
--- this file will contain all addon lua functions, addon lua types, etc.
--- extremely useful for intellisense (typehinting, auto-completion, etc)
