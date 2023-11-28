@@ -335,7 +335,7 @@ function onForestFireSpawned(fire_objective_id, fire_x, fire_y, fire_z) end
 --- @param fire_x number The x coordinate of the forest fire which was extinguished in world space.
 --- @param fire_y number The y coordinate of the forest fire which was extinguished in world space.
 --- @param fire_z number The z coordinate of the forest fire which was extinguished in world space.
-function onForestFireExtinguised(fire_objective_id, fire_x, fire_y, fire_z) end
+function onForestFireExtinguished(fire_objective_id, fire_x, fire_y, fire_z) end
 
 --- Called when a Tornado is spawned.
 --- @param transform SWMatrix Where the Tornado was spawned.
