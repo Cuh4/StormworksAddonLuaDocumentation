@@ -5,9 +5,11 @@
 -- This file contains every Addon Lua function, callback, and type.
 -- Last updated for game version: v1.9.6
 
----- // Credit (Discord Usernames)
--- Created by: @toastery
--- Updated by: @cuh6_
+---- // Credit
+-- Created by: @toastery (Discord)
+-- Updated by: @cuh6_ (Discord)
+
+-- GitHub Repo: https://github.com/Cuh4/StormworksAddonLuaDocumentation
 
 -------------------------
 -- LUA LSP DIAGNOSTICS SETTINGS
