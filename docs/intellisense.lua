@@ -11,6 +11,14 @@
 
 -- GitHub Repo: https://github.com/Cuh4/StormworksAddonLuaDocumentation
 
+---- // Changelog (dd/mm/yy format)
+-- 30/11/2023
+--[[
+    - Fixed server.spawnAddonVehicle docs
+    - Fixed server.spawnVehicle docs
+    - Removed server.getVehicleName
+]]
+
 -------------------------
 -- LUA LSP DIAGNOSTICS SETTINGS
 -------------------------
@@ -1375,13 +1383,13 @@ function server.getCharacterItem(object_id, SLOT_NUMBER) end
 --- @param matrix SWMatrix The matrix the vehicle should be spawned at
 --- @param addon_index number The index of the addon as it is found in the missions folder. There is no set order and it may not be the same next execution.
 --- @param component_id number NOT THE COMPONENT_INDEX. The component_id can be found using getLocationComponentData
---- @return number vehicle_id, boolean is_success
+--- @return number group_id, boolean is_success, table<integer, integer> vehicle_ids
 function server.spawnAddonVehicle(matrix, addon_index, component_id) end
 
 --- Spawns a vehicle from your vehicle save folder. NOTE: will spawn an "empty" vehicle if a vehicle file cannot be found. It is impossible to distinguish from an actual vehicle server-wise. BUG REPORT
 --- @param matrix SWMatrix The matrix the vehicle should be spawned at
 --- @param save_name string The name of the save file to spawn
---- @return number vehicle_id, boolean is_success
+--- @return number group_id, boolean is_success, table<integer, integer> vehicle_ids
 function server.spawnVehicle(matrix, save_name) end
 
 --- Despawns a vehicle from the world
@@ -1412,11 +1420,6 @@ function server.setVehiclePosSafe(vehicle_id, matrix) end
 --- Reloads the vehicle as if spawning from a workbench - refreshing damage and inventories etc.
 --- @param vehicle_id number The unique id of the vehicle
 function server.resetVehicleState(vehicle_id) end
-
---- Returns the name of the vehicle
---- @param vehicle_id number The unique id of the vehicle
---- @return string name, boolean is_success
-function server.getVehicleName(vehicle_id) end
 
 --- Removes all vehicles from the world
 function server.cleanVehicles() end
