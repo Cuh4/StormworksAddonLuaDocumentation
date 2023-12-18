@@ -16,6 +16,11 @@
 -- GitHub Repo: https://github.com/Cuh4/StormworksAddonLuaDocumentation
 
 ---- // Changelog (dd/mm/yy format)
+-- 18/12/2023
+--[[
+    - Added missing is_success return annotation for server.getVehicleGroup
+]]
+
 -- 12/12/2023
 --[[
     - Added server.dlcSpace(), forgot to add it earlier
@@ -1448,7 +1453,7 @@ function server.getVehicleComponents(vehicle_id) end
 
 --- Returns a table of vehicle IDs that belong to the specified group
 --- @param group_id number The unique id of the group
---- @return table<integer, integer> vehicle_ids
+--- @return table<integer, integer> vehicle_ids, boolean is_success
 function server.getVehicleGroup(group_id) end
 
 --- Despawns all vehicles belonging to the specified group
