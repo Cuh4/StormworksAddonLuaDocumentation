@@ -18,6 +18,7 @@
 ---- // Changelog (dd/mm/yy format)
 -- 18/12/2023
 --[[
+    - Fixed return annotation for server.spawnAddonVehicle being "group_id" and not "vehicle_id"
     - Added missing is_success return annotation for server.getVehicleGroup
 ]]
 
@@ -1397,7 +1398,7 @@ function server.getCharacterItem(object_id, SLOT_NUMBER) end
 --- @param matrix SWMatrix The matrix the vehicle should be spawned at
 --- @param addon_index number The index of the addon as it is found in the missions folder. There is no set order and it may not be the same next execution.
 --- @param component_id number NOT THE COMPONENT_INDEX. The component_id can be found using getLocationComponentData
---- @return number group_id, boolean is_success, table<integer, integer> vehicle_ids
+--- @return number primary_vehicle_id, boolean is_success, table<integer, integer> vehicle_ids
 function server.spawnAddonVehicle(matrix, addon_index, component_id) end
 
 --- Spawns a vehicle from your vehicle save folder. NOTE: will spawn an "empty" vehicle if a vehicle file cannot be found. It is impossible to distinguish from an actual vehicle server-wise. BUG REPORT
