@@ -16,6 +16,11 @@
 -- GitHub Repo: https://github.com/Cuh4/StormworksAddonLuaDocumentation
 
 ---- // Changelog (dd/mm/yy format)
+-- 02/01/2024
+--[[
+    - Added missing object_id attribute to the SWPlayer class.
+]]
+
 -- 18/12/2023
 --[[
     - Fixed return annotation for server.spawnAddonVehicle being "group_id" and not "vehicle_id"
@@ -888,6 +893,7 @@ function server.removePopup(peer_id, ui_id) end
 --- @field admin boolean Whether the player is an admin
 --- @field auth boolean Whether the player has auth
 --- @field steam_id number The player's Steam ID (convert to string as soon as possible to prevent loss of data)
+--- @field object_id number The player's character's object ID. Note that this isnt in the in-game documentation for some reason
 
 --- @class SWObjectData object here is interchangable with "character"
 --- @field object_type SWObjectTypeEnum the object's type.
