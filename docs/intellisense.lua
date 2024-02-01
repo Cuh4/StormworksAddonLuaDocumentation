@@ -1,21 +1,35 @@
 --------------------------------------------------------------------------------
 -- Intellisense File
 --------------------------------------------------------------------------------
+
+----------------------------------------
 ---- // Info
+----------------------------------------
 -- This file contains every Addon Lua function, callback, and type.
 
--- Simply put this file in your code workspace, and you should have intellisense support.
+-- Simply put this file in your code workspace, and you should have intellisense support (auto-completion, etc) for Addon Lua.
 -- This extension is required: https://marketplace.visualstudio.com/items?itemName=sumneko.lua
 
--- Last updated for game version: v1.9.6
-
+----------------------------------------
 ---- // Credit
+----------------------------------------
 -- Created by: @toastery (Discord)
--- Updated by: @cuh6_ (Discord)
+-- Maintained by: @cuh6_ (Discord)
 
 -- GitHub Repo: https://github.com/Cuh4/StormworksAddonLuaDocumentation
 
+----------------------------------------
 ---- // Changelog (dd/mm/yy format)
+----------------------------------------
+-- Last updated for game version: v1.10.0 (The Rod Fishing Major Update)
+
+-- 01/02/2024
+--[[
+    - Added drill_rod and fishing_lure to object type enum
+    - Added new map label types to map label type enum
+    - Added new equipment types to equipment type enum
+]]
+
 -- 02/01/2024
 --[[
     - Added missing object_id attribute to the SWPlayer class.
@@ -472,6 +486,8 @@ function onOilSpill(tile_x, tile_z, delta, total, vehicle_id) end
 ---| 70 # meteorite
 ---| 71 # glowstick
 ---| 72 # creature
+---| 73 # drill_rod
+---| 74 # fishing_lure
 
 ---@alias SWAddonComponentDataTypeEnum
 ---| 0 # zone
@@ -719,6 +735,12 @@ function server.spawnAddonComponent(matrix, addon_index, location_index, compone
 ---| 12 # lighthouse
 ---| 13 # fuel
 ---| 14 # fuel_sell
+---| 15 # hospital ship
+---| 16 # refuel_plane
+---| 17 # ore
+---| 18 # ingot
+---| 19 # fish
+---| 20 # dollar
 
 ---@alias SWPositionTypeEnum
 ---| 0 # fixed
@@ -1308,8 +1330,52 @@ function server.getCharacterItem(object_id, SLOT_NUMBER) end
 ---| 76 # black_hawk_vest
 ---| 77 # plate_vest
 ---| 78 # armor_vest
-
-
+---| 79 # space_suit
+---| 80 # exploration_space_suit
+---| 81 # fishing rod
+---| 82 # anchovie
+---| 83 # anglerfish
+---| 84 # arctic_char
+---| 85 # ballan_lizardfish
+---| 86 # ballan_wrasse
+---| 87 # barreleye_fish
+---| 88 # black_Bream
+---| 89 # black_dragonfish
+---| 90 # clown_fish
+---| 91 # cod
+---| 92 # dolphinfish
+---| 93 # gulper_eel
+---| 94 # haddock
+---| 95 # hake
+---| 96 # herring
+---| 97 # john_dory
+---| 98 # labrus
+---| 99 # lanternfish
+---| 100 # mackerel
+---| 101 # midshipman
+---| 102 # perch
+---| 103 # pike
+---| 104 # pinecone_fish
+---| 105 # pollack
+---| 106 # red_mullet
+---| 107 # rockfish
+---| 108 # sablefish
+---| 109 # salmon
+---| 110 # sardine
+---| 111 # scad
+---| 112 # sea_bream
+---| 113 # sea_halibut
+---| 114 # sea_piranha
+---| 115 # seabass
+---| 116 # slimehead
+---| 117 # snapper
+---| 118 # snapper_gold
+---| 119 # snook
+---| 120 # spadefish
+---| 121 # trout
+---| 122 # tubeshoulders_fish
+---| 123 # viperfish
+---| 124 # yellowfin_tuna
 
 
 -------------------------
