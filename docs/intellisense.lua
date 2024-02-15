@@ -23,6 +23,15 @@
 ----------------------------------------
 -- Last updated for game version: v1.10.0 (The Rod Fishing Major Update)
 
+-- 15/02/2024
+--[[
+    - Documented hidden undocumented functions. They are mainly aliases of existing functions
+        These undocumented functions are untested. I found them in "_ENV.server", but I've never used them.
+        This means they might not even be callable, they do nothing, or I may have aliased it to the wrong function
+        
+    - Removed "BUG REPORT" text, couldn't find hyperlink for it
+]]
+
 -- 01/02/2024
 --[[
     - Added drill_rod and fishing_lure to object type enum
@@ -633,6 +642,8 @@ function onOilSpill(tile_x, tile_z, delta, total, vehicle_id) end
 --- @return number addon_index, boolean is_success
 function server.getAddonIndex(name) end
 
+server.getPlaylistIndexCurrent = server.getAddonIndex
+
 --- Get the internal index of a location in the specified addon by its name (this index is local to the addon)
 --- @param addon_index number The index of the addon as it is found in the missions folder. There is no set order and it may not be the same next execution.
 --- @param name string The name of the location as it appears in the addon
@@ -643,6 +654,8 @@ function server.getLocationIndex(addon_index, name) end
 --- @param name string
 --- @return boolean is_success
 function server.spawnThisAddonLocation(name) end
+
+server.spawnThisPlaylistMissionLocation = server.spawnThisAddonLocation
 
 --- Directly spawn a location by a name from the current addon, optional matrix parameter
 --- @param name string the name of the location in the current addon
@@ -679,10 +692,14 @@ function server.isInZone(matrix, zone_display_name) end
 --- @return number count
 function server.getAddonCount() end
 
+server.getPlaylistCount = server.getAddonCount
+
 --- Returns data about the addon
 --- @param addon_index number The index of the addon as it is found in the missions folder. There is no set order and it may not be the same next execution. INDEX STARTS AT 0
 --- @return SWAddonData addon_data
 function server.getAddonData(addon_index) end
+
+server.getPlaylistData = server.getAddonData
 
 --- Returns data on a specific location in the addon
 --- @param addon_index number The index of the addon as it is found in the missions folder. There is no set order and it may not be the same next execution. INDEX STARTS AT 0
@@ -704,6 +721,8 @@ function server.getLocationComponentData(addon_index, location_index, component_
 --- @param parent_vehicle_id number? optional id of the vehicle to parent the fire or zone component to,
 --- @return SWAddonComponentSpawned component, boolean is_success
 function server.spawnAddonComponent(matrix, addon_index, location_index, component_index, parent_vehicle_id) end
+
+server.spawnMissionComponent = server.spawnAddonComponent
 
 
 
@@ -1473,11 +1492,13 @@ function server.getCharacterItem(object_id, SLOT_NUMBER) end
 --- @return number primary_vehicle_id, boolean is_success, table<integer, integer> vehicle_ids
 function server.spawnAddonVehicle(matrix, addon_index, component_id) end
 
---- Spawns a vehicle from your vehicle save folder. NOTE: will spawn an "empty" vehicle if a vehicle file cannot be found. It is impossible to distinguish from an actual vehicle server-wise. BUG REPORT
+--- Spawns a vehicle from your vehicle save folder. NOTE: will spawn an "empty" vehicle if a vehicle file cannot be found. It is impossible to distinguish from an actual vehicle server-wise.
 --- @param matrix SWMatrix The matrix the vehicle should be spawned at
 --- @param save_name string The name of the save file to spawn
 --- @return number group_id, boolean is_success, table<integer, integer> vehicle_ids
 function server.spawnVehicle(matrix, save_name) end
+
+server.spawnVehicleSaveFile = server.spawnVehicle
 
 --- Despawns a vehicle from the world
 --- @param vehicle_id number The unique id of the vehicle
@@ -1656,7 +1677,7 @@ function server.getVehicleRopeHook(vehicle_id, name) end
 --- @param trigger boolean The chair trigger state
 function server.setVehicleSeat(vehicle_id, seat_name, axis_ws, axis_da, axis_ud, axis_rl, button_1, button_2, button_3, button_4, button_5, button_6, trigger) end
 
---- Presses a button on a vehicle. Warning, can cause massive lag. LAG BUG REPORT Also note: Static vehicles can output values even when not powered BUG REPORT
+--- Presses a button on a vehicle. Warning, can cause massive lag. Also note: Static vehicles can output values even when not powered
 --- @overload fun(vehicle_id: number, voxel_x: number, voxel_y: number, voxel_z: number)
 --- @param vehicle_id number The unique id of the vehicle
 --- @param button_name string The name of the button as it appears on the vehicle. Editable using the select tool in the workbench
@@ -1753,7 +1774,7 @@ function server.getVehicleLocal(vehicle_id) end
 --- @return boolean is_success
 function server.setVehicleTransponder(vehicle_id, is_active) end
 
---- Allows a vehicle to be edited. NOTE: the vehicle will only be editable when next to a workbench. You can see it on the map but cannot teleport or remove it. BUG REPORT
+--- Allows a vehicle to be edited. NOTE: the vehicle will only be editable when next to a workbench. You can see it on the map but cannot teleport or remove it.
 --- @param vehicle_id number The unique id of the vehicle
 --- @param is_editable boolean Sets whether or not the vehicle is able to be edited
 --- @return boolean is_success
@@ -2045,6 +2066,8 @@ function server.getTile(transform) end
 --- Returns the data for the tile selected at the start of the game
 --- @return SWStartTile tile_data, boolean is_success
 function server.getStartTile() end
+
+server.getStartIsland = server.getStartTile
 
 --- Returns whether the tile at the given world coordinates is player owned
 --- @param matrix SWMatrix The matrix the tile can be found at. Doesn't have to be exact, just has to be within the tile.
