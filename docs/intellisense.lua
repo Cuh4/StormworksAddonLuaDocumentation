@@ -23,6 +23,11 @@
 ----------------------------------------
 -- Last updated for game version: v1.10.0 (The Rod Fishing Major Update)
 
+-- 21/02/2024
+--[[
+    - Add missing documentation for server.spawnMeteorShower
+]]
+
 -- 15/02/2024
 --[[
     - Documented hidden undocumented functions. They are mainly aliases of existing functions
@@ -1965,6 +1970,12 @@ function server.spawnTornado(transform_matrix, magnitude) end
 --- @param magnitude number magnitude 0->1
 --- @return boolean is_success
 function server.spawnMeteor(transform_matrix, magnitude) end
+
+--- @param transform_matrix SWMatrix
+--- @param magnitude number magnitude 0->1
+--- @param is_spawn_tsunami boolean
+--- @return boolean is_success
+function server.spawnMeteorShower(transform_matrix, magnitude, is_spawn_tsunami) end
 
 --- @param transform_matrix SWMatrix
 --- @param magnitude number magnitude 0->1
