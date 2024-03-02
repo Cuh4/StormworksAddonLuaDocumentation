@@ -23,6 +23,11 @@
 ----------------------------------------
 -- Last updated for game version: v1.10.0 (The Rod Fishing Major Update)
 
+-- 02/03/2024
+--[[
+    - Fix return annotation for server.spawnVehicle (group_id --> primary_vehicle_id)
+]]
+
 -- 21/02/2024
 --[[
     - Add missing documentation for server.spawnMeteorShower
@@ -1500,7 +1505,7 @@ function server.spawnAddonVehicle(matrix, addon_index, component_id) end
 --- Spawns a vehicle from your vehicle save folder. NOTE: will spawn an "empty" vehicle if a vehicle file cannot be found. It is impossible to distinguish from an actual vehicle server-wise.
 --- @param matrix SWMatrix The matrix the vehicle should be spawned at
 --- @param save_name string The name of the save file to spawn
---- @return number group_id, boolean is_success, table<integer, integer> vehicle_ids
+--- @return number primary_vehicle_id, boolean is_success, table<integer, integer> vehicle_ids
 function server.spawnVehicle(matrix, save_name) end
 
 server.spawnVehicleSaveFile = server.spawnVehicle
