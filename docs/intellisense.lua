@@ -21,7 +21,14 @@
 ----------------------------------------
 ---- // Changelog (dd/mm/yy format)
 ----------------------------------------
--- Last updated for game version: v1.10.0 (The Rod Fishing Major Update)
+-- Last updated for game version: v1.10.8 (The Clear Oil Spills Update)
+
+-- 28/03/2024
+--[[
+    - Added documentation for server.clearOilSpill()
+    - Added documentation for callback onClearOilSpill()
+    - Added solid_propellant return annotation for server.getTileInventory()
+]]
 
 -- 02/03/2024
 --[[
@@ -183,6 +190,9 @@ function matrix.rotationToFaceXZ(x, z) end
 -------------------------
 -- CALLBACKS
 -------------------------
+
+--- Called when all oil spills are cleared
+function onClearOilSpill() end
 
 --- called every game tick
 --- @param game_ticks number the number of ticks since the last onTick call (normally 1, while sleeping 400.)
@@ -2000,6 +2010,9 @@ function server.getOilSpill(transform_matrix) end
 ---@param amount number the amount of oil you want to set at the specified position.
 function server.setOilSpill(transform_matrix, amount) end
 
+--- Clear all oil spills in the world
+function server.clearOilSpill() end
+
 --- Requires Weapons DLC
 --- @param transform_matrix SWMatrix
 --- @param magnitude number 0->1
@@ -2096,6 +2109,7 @@ function server.getTilePurchased(matrix) end
 --- @return number uranium the amount of uranium in this tile's inventory
 --- @return number diesel the amount of diesel in this tile's inventory
 --- @return number jet_fuel the amount of jet_fuel in this tile's inventory
+--- @return number solid_propellant the amount of solid_propellant in this tile's inventory
 function server.getTileInventory(matrix) end
 
 --- Sets the inventory amounts for the tile resource depot.
