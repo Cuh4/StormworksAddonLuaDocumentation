@@ -23,6 +23,11 @@
 ----------------------------------------
 -- Last updated for game version: v1.10.8 (The Clear Oil Spills Update)
 
+-- 14/02/2024
+--[[
+    - Added missing argument for server.spawnMeteor(), is_spawn_tsunami
+]]
+
 -- 28/03/2024
 --[[
     - Added documentation for server.clearOilSpill()
@@ -1983,8 +1988,9 @@ function server.spawnTornado(transform_matrix, magnitude) end
 
 --- @param transform_matrix SWMatrix
 --- @param magnitude number magnitude 0->1
+--- @param is_spawn_tsunami boolean
 --- @return boolean is_success
-function server.spawnMeteor(transform_matrix, magnitude) end
+function server.spawnMeteor(transform_matrix, magnitude, is_spawn_tsunami) end
 
 --- @param transform_matrix SWMatrix
 --- @param magnitude number magnitude 0->1
