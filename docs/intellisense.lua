@@ -23,8 +23,9 @@
 ----------------------------------------
 -- Last updated for game version: v1.10.8 (The Clear Oil Spills Update)
 
--- 14/02/2024
+-- 12/04/2024
 --[[
+    - Add solid_propellant parameter to server.setTileInventory()
     - Added missing argument for server.spawnMeteor(), is_spawn_tsunami
 ]]
 
@@ -2124,7 +2125,8 @@ function server.getTileInventory(matrix) end
 --- @param uranium number the amount of uranium to set in this tile's inventory
 --- @param diesel number the amount of diesel to set in this tile's inventory
 --- @param jet_fuel number the amount of jet_fuel to set in this tile's inventory
-function server.setTileInventory(matrix, coal, uranium, diesel, jet_fuel) end
+--- @param solid_propellant number the amount of solid_propellant to set in this tile's inventory
+function server.setTileInventory(matrix, coal, uranium, diesel, jet_fuel, solid_propellant) end
 
 
 --- Returns whether the object transform is within a custom zone of the selected size
