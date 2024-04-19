@@ -23,6 +23,11 @@
 ----------------------------------------
 -- Last updated for game version: v1.10.8 (The Clear Oil Spills Update)
 
+-- 19/04/2024
+--[[
+    - Fixed SWVehicleComponents class
+]]
+
 -- 12/04/2024
 --[[
     - Add solid_propellant parameter to server.setTileInventory()
@@ -1491,6 +1496,9 @@ function server.getCharacterItem(object_id, SLOT_NUMBER) end
 --- @field hoppers table<integer, SWVehicleHopperData>
 --- @field guns table<integer, SWVehicleWeaponData>
 --- @field rope_hooks table<integer, SWVehicleRopeHookData>
+
+--- @class SWLoadedVehicleData
+--- @field components SWVehicleComponents 
 --- @field mass number The mass of the vehicle
 --- @field voxels number The voxel count of the vehicle
 --- @field characters table<integer, integer> The IDs of characters sitting in this vehicle
@@ -1568,7 +1576,7 @@ function server.getVehicleData(vehicle_id) end
 
 --- Returns a vehicle's components
 --- @param vehicle_id number The unique id of the vehicle
---- @return SWVehicleComponents vehicle_components, boolean is_success
+--- @return SWLoadedVehicleData vehicle_components, boolean is_success
 function server.getVehicleComponents(vehicle_id) end
 
 --- Returns a table of vehicle IDs that belong to the specified group
