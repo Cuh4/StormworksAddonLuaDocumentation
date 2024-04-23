@@ -23,6 +23,12 @@
 ----------------------------------------
 -- Last updated for game version: v1.10.8 (The Clear Oil Spills Update)
 
+-- 23/04/2024
+--[[
+    - Added server.setSeated alias for server.setCharacterSeated
+    - Removed function descriptions for alias functions
+]]
+
 -- 19/04/2024
 --[[
     - Fixed SWVehicleComponents class
@@ -1110,12 +1116,13 @@ function server.reviveCharacter(object_id) end
 --- @param seat_name string The name of the seat of which you want to set the character seated in.
 function server.setCharacterSeated(object_id, vehicle_id, seat_name) end
 
---- Get object/character data of the specified object_id, aliased to server.getCharacterData
+server.setSeated = server.setCharacterSeated
+
+--- Get object/character data of the specified object_id
 --- @param object_id number The unique object_id of the character you want to get data on
 --- @return SWObjectData character_data SWCharacterData if success, nil if failed.
 function server.getObjectData(object_id) end
 
---- Get character data for the specified object_id, alias of server.getObjectData
 server.getCharacterData = server.getObjectData
 
 --- Get the current vehicle_id for a specified character object
