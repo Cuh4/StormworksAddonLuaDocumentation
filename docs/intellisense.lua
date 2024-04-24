@@ -21,7 +21,12 @@
 ----------------------------------------
 ---- // Changelog (dd/mm/yy format)
 ----------------------------------------
--- Last updated for game version: v1.10.8 (The Clear Oil Spills Update)
+-- Last updated for game version: v1.10.10 (The Person Overboard Update)
+
+-- 24/04/2024
+--[[
+    - Added creature_type, interactable, and animal_type fields to SWAddonComponentData
+]]
 
 -- 23/04/2024
 --[[
@@ -662,6 +667,9 @@ function onOilSpill(tile_x, tile_z, delta, total, vehicle_id) end
 --- @field transform                        SWMatrix The position of the component
 --- @field vehicle_parent_component_id      number
 --- @field character_outfit_type            number The character outfit type (See Outfit type)
+--- @field interactable                     boolean
+--- @field creature_type                    SWCreatureTypeEnum
+--- @field animal_type                      SWAnimalTypeEnum
 
 --- @class SWAddonComponentSpawned
 --- @field tags_full            string The tags as a string (ex. "tag1,tag2,tag3")
