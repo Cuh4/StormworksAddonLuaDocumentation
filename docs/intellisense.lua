@@ -23,9 +23,14 @@
 ----------------------------------------
 -- Last updated for game version: v1.10.10 (The Person Overboard Update)
 
+-- 25/04/2024
+--[[
+    - Add ---@deprecated tag to all undocumented hidden alias functions
+]]
+
 -- 24/04/2024
 --[[
-    - Added creature_type, interactable, and animal_type fields to SWAddonComponentData
+    - Added creature_type, interactable, and animal_type fields to SWAddonComponentData (From v1.10.10 update)
 ]]
 
 -- 23/04/2024
@@ -687,6 +692,7 @@ function onOilSpill(tile_x, tile_z, delta, total, vehicle_id) end
 --- @return number addon_index, boolean is_success
 function server.getAddonIndex(name) end
 
+---@deprecated
 server.getPlaylistIndexCurrent = server.getAddonIndex
 
 --- Get the internal index of a location in the specified addon by its name (this index is local to the addon)
@@ -700,6 +706,7 @@ function server.getLocationIndex(addon_index, name) end
 --- @return boolean is_success
 function server.spawnThisAddonLocation(name) end
 
+---@deprecated
 server.spawnThisPlaylistMissionLocation = server.spawnThisAddonLocation
 
 --- Directly spawn a location by a name from the current addon, optional matrix parameter
@@ -737,6 +744,7 @@ function server.isInZone(matrix, zone_display_name) end
 --- @return number count
 function server.getAddonCount() end
 
+---@deprecated
 server.getPlaylistCount = server.getAddonCount
 
 --- Returns data about the addon
@@ -744,6 +752,7 @@ server.getPlaylistCount = server.getAddonCount
 --- @return SWAddonData addon_data
 function server.getAddonData(addon_index) end
 
+---@deprecated
 server.getPlaylistData = server.getAddonData
 
 --- Returns data on a specific location in the addon
@@ -767,6 +776,7 @@ function server.getLocationComponentData(addon_index, location_index, component_
 --- @return SWAddonComponentSpawned component, boolean is_success
 function server.spawnAddonComponent(matrix, addon_index, location_index, component_index, parent_vehicle_id) end
 
+---@deprecated
 server.spawnMissionComponent = server.spawnAddonComponent
 
 
@@ -1547,6 +1557,7 @@ function server.spawnAddonVehicle(matrix, addon_index, component_id) end
 --- @return number primary_vehicle_id, boolean is_success, table<integer, integer> vehicle_ids
 function server.spawnVehicle(matrix, save_name) end
 
+---@deprecated
 server.spawnVehicleSaveFile = server.spawnVehicle
 
 --- Despawns a vehicle from the world
@@ -2126,6 +2137,7 @@ function server.getTile(transform) end
 --- @return SWStartTile tile_data, boolean is_success
 function server.getStartTile() end
 
+---@deprecated
 server.getStartIsland = server.getStartTile
 
 --- Returns whether the tile at the given world coordinates is player owned
