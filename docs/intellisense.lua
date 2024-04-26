@@ -23,6 +23,11 @@
 ----------------------------------------
 -- Last updated for game version: v1.10.10 (The Person Overboard Update)
 
+-- 26/04/2024
+--[[
+    - General formatting fixes
+]]
+
 -- 25/04/2024
 --[[
     - Add ---@deprecated tag to all undocumented hidden alias functions
@@ -863,8 +868,8 @@ server.spawnMissionComponent = server.spawnAddonComponent
 --- @param peerID number|nil The peerID of the player you want to message. -1 messages all players. If ignored, it will message all players
 function server.announce(name, message, peerID) end
 
----### Sends a command that can be recieved by addons using the onCustomCommand callback <br>
----> The peer_id sent will be -1
+---Sends a command that can be recieved by addons using the onCustomCommand callback
+--- The peer_id sent will be -1
 ---@param message string the message to send, for example, "?prefix command arg1"
 function server.command(message) end
 
@@ -1155,9 +1160,9 @@ function server.getCharacterVehicle(object_id) end
 --- @param is_ai boolean lets the character do seat controls
 function server.setCharacterData(object_id, hp, is_interactable, is_ai) end
 
----## Sets the character's tooltip
----put after the character's "Pickup" and "Follow" tooltips without a line break.<br>
----## Doesn't support setting a player's tooltip<br>
+--- Sets the character's tooltip
+--- Put after the character's "Pickup" and "Follow" tooltips without a line break.
+--- Doesn't support setting a player's tooltip
 ---@param object_id integer the character's object_id which you want to set the tooltip of
 ---@param display_name string the tooltip to put after the game's default tooltips, such as the game's Hold [key1][key2] to pickup tooltips
 function server.setCharacterTooltip(object_id, display_name) end
@@ -1799,9 +1804,8 @@ function server.spawnVehicleRope(vehicle_id_1, voxel_x_1, voxel_y_1, voxel_z_1, 
 function server.getVehicleFireCount(vehicle_id) end
 
 --- Shows the text when looked directly at. Blocks with unique tooltips such as buttons will override this tooltip
----<br>*Only works on vehicles where "show on map" is off. (needs confirmation)*
----<br>
----> **Use of `<` or `>` may result in the string not being parsed properly**
+--- <br>*Only works on vehicles where "show on map" is off. (needs confirmation)*
+--- <br>**Use of `<` or `>` may result in the string not being parsed properly**
 --- @param vehicle_id number The unique id of the vehicle
 --- @param text string The text that will appear in the tooltip
 --- @return boolean is_success
@@ -2116,9 +2120,10 @@ function server.setAudioMood(peer_id, AUDIO_MOOD) end
 --- @return SWMatrix matrix, boolean is_success
 function server.getOceanTransform(matrix, min_search_range, max_search_range) end
 
---- Gets the ocean floor level of the tile on that matrix, does not include mesh height (eg: land)<br>Example return value: `-375`
----@param transform_matrix SWMatrix the position to get the ocean floor of
----@return number height the ocean floor of the tile at the provided matrix.
+--- Gets the ocean floor level of the tile on that matrix, does not include mesh height (eg: land)
+--- <br>Example return value: `-375`
+--- @param transform_matrix SWMatrix the position to get the ocean floor of
+--- @return number height the ocean floor of the tile at the provided matrix.
 function server.getOceanFloor(transform_matrix) end
 
 --- Returns the world position of a random tile of type tile_name closest to the supplied location
