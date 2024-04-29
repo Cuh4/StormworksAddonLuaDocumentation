@@ -13,8 +13,8 @@
 ----------------------------------------
 ---- // Credit
 ----------------------------------------
--- Created by: @toastery (Discord)
--- Maintained by: @cuh6_ (Discord)
+-- Created by: @nameouschangey (GitHub) and @Toast732 (GitHub)
+-- Maintained by: @Cuh4 (Discord)
 
 -- GitHub Repo: https://github.com/Cuh4/StormworksAddonLuaDocumentation
 

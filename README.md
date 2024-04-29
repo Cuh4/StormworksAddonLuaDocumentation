@@ -13,4 +13,4 @@ Unfortunately, the documentation in this repository is just categorized screensh
 
 ## 👨‍🦱 Credit
 - **Cuh4** ([GitHub](https://github.com/Cuh4)) - Maintainer
-- **Toastery** ([GitHub](https://github.com/Toast732)) - Original Creator of `/docs/intellisense.lua`
+- **NameousChangey** ([GitHub](https://github.com/nameouschangey)) & **Toastery** ([GitHub](https://github.com/Toast732)) - Original Creators of `/docs/intellisense.lua`
