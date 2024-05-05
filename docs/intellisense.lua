@@ -23,6 +23,11 @@
 ----------------------------------------
 -- Last updated for game version: v1.10.10 (The Person Overboard Update)
 
+-- 05/05/2024
+--[[
+    - Fix description for server.getWeather
+]]
+
 -- 26/04/2024
 --[[
     - General formatting fixes
@@ -2100,7 +2105,7 @@ function server.getDate() end
 --- @return SWTime clock
 function server.getTime() end
 
---- Returns the time the save has been running for in milliseconds
+--- Returns the current weather
 --- @param transform_matrix SWMatrix
 --- @return SWWeather weather
 function server.getWeather(transform_matrix) end
