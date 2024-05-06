@@ -23,6 +23,12 @@
 ----------------------------------------
 -- Last updated for game version: v1.10.10 (The Person Overboard Update)
 
+-- 06/05/2024
+--[[
+    - Rename SWOreTypeEnum to SWResourceTypeEnum
+    - Add missing resources to SWResourceTypeEnum (solid_propellant and fishes)
+]]
+
 -- 05/05/2024
 --[[
     - Fix description for server.getWeather
@@ -583,7 +589,7 @@ function onOilSpill(tile_x, tile_z, delta, total, vehicle_id) end
 ---| 8 # slurry
 ---| 9 # saturated slurry
 
----@alias SWOreTypeEnum
+---@alias SWResourceTypeEnum
 ---| 0 # coal
 ---| 1 # iron
 ---| 2 # aluminium
@@ -596,6 +602,50 @@ function onOilSpill(tile_x, tile_z, delta, total, vehicle_id) end
 ---| 9 # ingot_gold_impure
 ---| 10 # ingot_gold
 ---| 11 # ingot_uranium
+---| 12 # solid_propellant
+---| 13 # anchovy
+---| 14 # anglerfish
+---| 15 # arctic_char
+---| 16 # ballan_lizardfish
+---| 17 # ballan_wrasse
+---| 18 # barreleye_fish
+---| 19 # black_bream
+---| 20 # black_dragonfish
+---| 21 # clownfish
+---| 22 # cod
+---| 23 # dolphinfish
+---| 24 # gulper_eel
+---| 25 # haddock
+---| 26 # hake
+---| 27 # herring
+---| 28 # john_dory
+---| 29 # labrus
+---| 30 # lanternfish
+---| 31 # mackerel
+---| 32 # midshipman
+---| 33 # perch
+---| 34 # pike
+---| 35 # pinecone_fish
+---| 36 # pollock
+---| 37 # red_mullet
+---| 38 # rockfish
+---| 39 # sablefish
+---| 40 # salmon
+---| 41 # sardine
+---| 42 # scad
+---| 43 # sea_bream
+---| 44 # halibut
+---| 45 # sea_piranha
+---| 46 # seabass
+---| 47 # slimehead
+---| 48 # snapper
+---| 49 # gold_snapper
+---| 50 # snook
+---| 51 # spadefish
+---| 52 # trout
+---| 53 # tubeshoulders_fish
+---| 54 # viperfish
+---| 55 # yellowfin_tuna
 
 
 ---@class SWGameSettingEnum : string
@@ -1483,6 +1533,7 @@ function server.getCharacterItem(object_id, SLOT_NUMBER) end
 --- @field name string the name of the seat
 --- @field pos SWVoxelPos the voxel position of the seat
 --- @field seated_id integer the character id of who is in the seat
+--- @field seated_peer_id integer the peer id of the player sitting in the seat, if any
 
 --- @class SWVehicleButtonData
 --- @field name string the name of the button
@@ -1511,7 +1562,7 @@ function server.getCharacterItem(object_id, SLOT_NUMBER) end
 --- @class SWVehicleHopperData
 --- @field name string the name of the hopper
 --- @field pos SWVoxelPos the voxel position of the hopper
---- @field values table<SWOreTypeEnum, number> a table indexed by the ore id, with the value being the amount of that ore inside this hopper
+--- @field values table<SWResourceTypeEnum, number> a table indexed by the resource id, with the value being the amount of that resource inside this hopper
 --- @field capacity number total capacity of the hopper
 
 --- @class SWVehicleWeaponData
@@ -1779,12 +1830,12 @@ function server.setVehicleTank(vehicle_id, tank_name, amount, FLUID_TYPE) end
 function server.setVehicleBattery(vehicle_id, battery_name, amount) end
 
 --- Sets the number of coal objects inside a hopper
---- @overload fun(vehicle_id: number, voxel_x: number, voxel_y: number, voxel_z: number, amount: number, ORE_TYPE: SWOreTypeEnum)
+--- @overload fun(vehicle_id: number, voxel_x: number, voxel_y: number, voxel_z: number, amount: number, RESOURCE_TYPE: SWResourceTypeEnum)
 --- @param vehicle_id number The vehicle ID to set the hopper on
 --- @param hopper_name string The name of the hopper to set
 --- @param amount number The amount to set the hopper to
---- @param ORE_TYPE SWOreTypeEnum The ore type to set inside the hopper
-function server.setVehicleHopper(vehicle_id, hopper_name, amount, ORE_TYPE) end
+--- @param RESOURCE_TYPE SWResourceTypeEnum The resource type to set inside the hopper
+function server.setVehicleHopper(vehicle_id, hopper_name, amount, RESOURCE_TYPE) end
 
 --- Sets the charge level of the weapon
 --- @overload fun(vehicle_id: number, voxel_x: number, voxel_y: number, voxel_z: number, amount: number)
