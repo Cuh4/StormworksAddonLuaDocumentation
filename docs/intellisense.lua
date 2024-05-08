@@ -21,7 +21,15 @@
 ----------------------------------------
 ---- // Changelog (dd/mm/yy format)
 ----------------------------------------
--- Last updated for game version: v1.10.10 (The Person Overboard Update)
+-- Last updated for game version: v1.11.0 (The Commercial Fishing Major Update)
+
+-- 08/05/2024
+--[[
+    - Added descriptions for server.spawnTornado, server.spawnMeteor, server.spawnMeteorShower, server.spawnVolcano, server.getVolcanos, server.spawnWhirlpool, server.spawnTsunami
+    - Added server.getFishData, server.getFishHotspots
+    - Added SWFishData and SWFishHotSpotData classes
+    - Int states for fish equipment types are now shown in the equipment type description
+]]
 
 -- 06/05/2024
 --[[
@@ -1471,50 +1479,49 @@ function server.getCharacterItem(object_id, SLOT_NUMBER) end
 ---| 79 # space_suit
 ---| 80 # exploration_space_suit
 ---| 81 # fishing rod
----| 82 # anchovie
----| 83 # anglerfish
----| 84 # arctic_char
----| 85 # ballan_lizardfish
----| 86 # ballan_wrasse
----| 87 # barreleye_fish
----| 88 # black_Bream
----| 89 # black_dragonfish
----| 90 # clown_fish
----| 91 # cod
----| 92 # dolphinfish
----| 93 # gulper_eel
----| 94 # haddock
----| 95 # hake
----| 96 # herring
----| 97 # john_dory
----| 98 # labrus
----| 99 # lanternfish
----| 100 # mackerel
----| 101 # midshipman
----| 102 # perch
----| 103 # pike
----| 104 # pinecone_fish
----| 105 # pollack
----| 106 # red_mullet
----| 107 # rockfish
----| 108 # sablefish
----| 109 # salmon
----| 110 # sardine
----| 111 # scad
----| 112 # sea_bream
----| 113 # sea_halibut
----| 114 # sea_piranha
----| 115 # seabass
----| 116 # slimehead
----| 117 # snapper
----| 118 # snapper_gold
----| 119 # snook
----| 120 # spadefish
----| 121 # trout
----| 122 # tubeshoulders_fish
----| 123 # viperfish
----| 124 # yellowfin_tuna
-
+---| 82 # anchovie [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
+---| 83 # anglerfish [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
+---| 84 # arctic_char [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
+---| 85 # ballan_lizardfish [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
+---| 86 # ballan_wrasse [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
+---| 87 # barreleye_fish [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
+---| 88 # black_Bream [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
+---| 89 # black_dragonfish [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
+---| 90 # clown_fish [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
+---| 91 # cod [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
+---| 92 # dolphinfish [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
+---| 93 # gulper_eel [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
+---| 94 # haddock [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
+---| 95 # hake [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
+---| 96 # herring [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
+---| 97 # john_dory [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
+---| 98 # labrus [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
+---| 99 # lanternfish [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
+---| 100 # mackerel [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
+---| 101 # midshipman [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
+---| 102 # perch [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
+---| 103 # pike [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
+---| 104 # pinecone_fish [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
+---| 105 # pollack [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
+---| 106 # red_mullet [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
+---| 107 # rockfish [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
+---| 108 # sablefish [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
+---| 109 # salmon [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
+---| 110 # sardine [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
+---| 111 # scad [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
+---| 112 # sea_bream [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
+---| 113 # sea_halibut [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
+---| 114 # sea_piranha [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
+---| 115 # seabass [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
+---| 116 # slimehead [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
+---| 117 # snapper [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
+---| 118 # snapper_gold [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
+---| 119 # snook [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
+---| 120 # spadefish [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
+---| 121 # trout [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
+---| 122 # tubeshoulders_fish [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
+---| 123 # viperfish [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
+---| 124 # yellowfin_tuna [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
 
 -------------------------
 -- Vehicles
@@ -2066,11 +2073,35 @@ function server.setAITargetVehicle(object_id, target_vehicle_id) end
 ---@field r number the radius of the oil deposit
 ---@field oil number the amount of oil contained in this oil deposit
 
+---@class SWFishData
+---@field name string the name of the fish
+---@field price number the price of the fish
+---@field resource_type SWResourceTypeEnum the resource type of the fish
+---@field equipment_type SWEquipmentTypeEnum the equipment type of the fish
+---@field is_net_catchable boolean true if the fish is catchable via fish nets
+
+---@class SWFishHotSpotData
+---@field x number the x position of the fish hotspot in world space
+---@field y number the y position of the fish hotspot in world space
+---@field z number the z position of the fish hotspot in world space
+---@field resource_type SWResourceTypeEnum the resource type of the fish hotspot
+---@field r number the radius of the fish hotspot
+
+--- Get fish data
+---@return table<SWResourceTypeEnum, SWFishData>
+function server.getFishData() end
+
+--- Get fish hotspot data
+---@return table<integer, SWFishHotSpotData>
+function server.getFishHotspots() end
+
+--- Spawns a tsunami
 --- @param transform_matrix SWMatrix
 --- @param magnitude number magnitude 0->1
 --- @return boolean is_success
 function server.spawnTsunami(transform_matrix, magnitude) end
 
+--- Spawns a whirlpool
 --- @param transform_matrix SWMatrix
 --- @param magnitude number magnitude 0->1
 --- @return boolean is_success
@@ -2079,28 +2110,33 @@ function server.spawnWhirlpool(transform_matrix, magnitude) end
 --- Cancels the current gerstner wave even (tsunami or whirlpool)
 function server.cancelGerstner() end
 
+--- Spawns a tornado
 --- @param transform_matrix SWMatrix
 --- @param magnitude number magnitude 0->1
 --- @return boolean is_success
 function server.spawnTornado(transform_matrix, magnitude) end
 
+--- Spawns a meteor
 --- @param transform_matrix SWMatrix
 --- @param magnitude number magnitude 0->1
 --- @param is_spawn_tsunami boolean
 --- @return boolean is_success
 function server.spawnMeteor(transform_matrix, magnitude, is_spawn_tsunami) end
 
+--- Spawns a meteor shower
 --- @param transform_matrix SWMatrix
 --- @param magnitude number magnitude 0->1
 --- @param is_spawn_tsunami boolean
 --- @return boolean is_success
 function server.spawnMeteorShower(transform_matrix, magnitude, is_spawn_tsunami) end
 
+--- Spawns a volcano
 --- @param transform_matrix SWMatrix
 --- @param magnitude number magnitude 0->1
 --- @return boolean is_success
 function server.spawnVolcano(transform_matrix, magnitude) end
 
+--- Gets all volcanos
 --- @return table<number, SWVolcano> volcanos
 function server.getVolcanos() end
 
