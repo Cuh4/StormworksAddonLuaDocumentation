@@ -23,6 +23,12 @@
 ----------------------------------------
 -- Last updated for game version: v1.11.0 (The Commercial Fishing Major Update)
 
+-- 12/05/2024
+--[[
+    - Switched around server.setCharacterSeated and server.setSeated (server.setSeated is no longer an alias but the actual thing)
+    - Added server.setCreatureSeated as an alias of server.setSeated
+]]
+
 -- 08/05/2024
 --[[
     - Added descriptions for server.spawnTornado, server.spawnMeteor, server.spawnMeteorShower, server.spawnVolcano, server.getVolcanos, server.spawnWhirlpool, server.spawnTsunami
@@ -1198,14 +1204,15 @@ function server.killCharacter(object_id) end
 --- @param object_id number The unique object_id of the character you want to revive
 function server.reviveCharacter(object_id) end
 
---- Makes the provided character sit in the first seat found that has a matching name or matching voxel position to that which is provided. Can seat player characters
+--- Makes the provided object (character, creature, etc) sit in the first seat found that has a matching name or matching voxel position to that which is provided. Can seat player characters
 --- @overload fun(object_id: number, vehicle_id: number, voxel_x: number, voxel_y: number, voxel_z: number)
 --- @param object_id number The unique object_id of the character you want to seat
 --- @param vehicle_id number The vehicle that the seat is a part of
 --- @param seat_name string The name of the seat of which you want to set the character seated in.
-function server.setCharacterSeated(object_id, vehicle_id, seat_name) end
+function server.setSeated(object_id, vehicle_id, seat_name) end
 
-server.setSeated = server.setCharacterSeated
+server.setCharacterSeated = server.setSeated
+server.setCreatureSeated = server.setSeated
 
 --- Get object/character data of the specified object_id
 --- @param object_id number The unique object_id of the character you want to get data on
