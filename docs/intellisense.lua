@@ -25,7 +25,7 @@
 
 -- 07/06/2024
 --[[
-    - Added `---@meta` see https://luals.github.io/wiki/annotations/#meta
+    - Added `---@meta _` see https://luals.github.io/wiki/annotations/#meta
 ]]
 
 -- 12/05/2024
@@ -147,7 +147,7 @@
 -------------------------
 -- LUA LSP DIAGNOSTICS SETTINGS
 -------------------------
----@meta
+---@meta _
 
 -------------------------
 -- DEFINITIONS
