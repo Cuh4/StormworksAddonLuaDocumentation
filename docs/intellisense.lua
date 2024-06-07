@@ -25,7 +25,7 @@
 
 -- 07/06/2024
 --[[
-    - Added `---@meta _` see https://luals.github.io/wiki/annotations/#meta
+    - Added `---@meta` see https://luals.github.io/wiki/annotations/#meta
 ]]
 
 -- 12/05/2024
@@ -141,17 +141,13 @@
     - Removed server.getVehicleName
 ]]
 
----@meta _
-
 ----------------------------------------
 ---- // Intellisense
 ----------------------------------------
 -------------------------
 -- LUA LSP DIAGNOSTICS SETTINGS
 -------------------------
---- @diagnostic disable: lowercase-global
---- @diagnostic disable: missing-return
---- @diagnostic disable: duplicate-set-field
+---@meta
 
 -------------------------
 -- DEFINITIONS
