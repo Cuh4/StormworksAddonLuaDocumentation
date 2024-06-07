@@ -23,6 +23,11 @@
 ----------------------------------------
 -- Last updated for game version: v1.11.0 (The Commercial Fishing Major Update)
 
+-- 07/06/2024
+--[[
+    - Added `---@meta _` see https://luals.github.io/wiki/annotations/#meta
+]]
+
 -- 12/05/2024
 --[[
     - Switched around server.setCharacterSeated and server.setSeated (server.setSeated is no longer an alias but the actual thing)
@@ -142,9 +147,7 @@
 -------------------------
 -- LUA LSP DIAGNOSTICS SETTINGS
 -------------------------
---- @diagnostic disable: lowercase-global
---- @diagnostic disable: missing-return
---- @diagnostic disable: duplicate-set-field
+---@meta _
 
 -------------------------
 -- DEFINITIONS
