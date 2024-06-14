@@ -23,6 +23,11 @@
 ----------------------------------------
 -- Last updated for game version: v1.11.0 (The Commercial Fishing Major Update)
 
+-- 14/06/2024
+--[[
+    - Added missing fluid types to SWTankFluidTypeEnum
+]]
+
 -- 07/06/2024
 --[[
     - Added `---@meta _` see https://luals.github.io/wiki/annotations/#meta
@@ -605,6 +610,9 @@ function onOilSpill(tile_x, tile_z, delta, total, vehicle_id) end
 ---| 7 # steam
 ---| 8 # slurry
 ---| 9 # saturated slurry
+---| 10 # oxygen
+---| 11 # nitrogen
+---| 12 # hydrogen
 
 ---@alias SWResourceTypeEnum
 ---| 0 # coal
