@@ -23,6 +23,11 @@
 ----------------------------------------
 -- Last updated for game version: v1.11.0 (The Commercial Fishing Major Update)
 
+-- 19/06/2024
+--[[
+    - Fixed matrix.rotationToFaceXZ return type should be SWMatrix
+]]
+
 -- 14/06/2024
 --[[
     - Added missing fluid types to SWTankFluidTypeEnum
@@ -250,7 +255,7 @@ function matrix.multiplyXYZW(matrix1, x, y, z, w) end
 --- Returns the rotation required to face an X Z vector
 --- @param x number
 --- @param z number
---- @return number required_rotation
+--- @return SWMatrix required_rotation
 function matrix.rotationToFaceXZ(x, z) end
 
 
