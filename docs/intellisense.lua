@@ -14,7 +14,7 @@
 ---- // Credit
 ----------------------------------------
 -- Created by: @nameouschangey (GitHub) and @Toast732 (GitHub)
--- Maintained by: @Cuh4 (Discord)
+-- Maintained by: @Cuh4 (GitHub)
 
 -- GitHub Repo: https://github.com/Cuh4/StormworksAddonLuaDocumentation
 
