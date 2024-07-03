@@ -27,7 +27,7 @@
 --[[
     - Added server.getVehiclesByName()
     - Added SWVehicleAuthor class
-    - Updated vehicle class forv1.11.6 (add "name" and "authors" field)
+    - Updated vehicle class for v1.11.6 (add "name" and "authors" field)
 ]]
 
 -- 19/06/2024
