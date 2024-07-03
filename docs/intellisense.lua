@@ -443,7 +443,7 @@ function onObjectUnload(object_id) end
 --- @param vehicle_id number The vehicle ID of the vehicle that the button belongs to.
 --- @param peer_id number The peer ID of the player who interacted with the button.
 --- @param button_name string The name of the button that was interacted with.
----@param is_pressed boolean if the button's state is now pressed.
+--- @param is_pressed boolean if the button's state is now pressed.
 function onButtonPress(vehicle_id, peer_id, button_name, is_pressed) end
 
 --- Called when a vehicle or object is spawned by a script.
