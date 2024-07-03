@@ -21,7 +21,14 @@
 ----------------------------------------
 ---- // Changelog (dd/mm/yy format)
 ----------------------------------------
--- Last updated for game version: v1.11.0 (The Commercial Fishing Major Update)
+-- Last updated for game version: v1.11.6 (The Animal Missions Update)
+
+-- 03/07/2024
+--[[
+    - Added server.getVehiclesByName()
+    - Added SWVehicleAuthor class
+    - Updated vehicle class forv1.11.6 (add "name" and "authors" field)
+]]
 
 -- 19/06/2024
 --[[
@@ -1617,12 +1624,17 @@ function server.getCharacterItem(object_id, SLOT_NUMBER) end
 --- @field rope_hooks table<integer, SWVehicleRopeHookData>
 
 --- @class SWLoadedVehicleData
---- @field components SWVehicleComponents 
+--- @field components SWVehicleComponents The components of this vehicle
 --- @field mass number The mass of the vehicle
 --- @field voxels number The voxel count of the vehicle
 --- @field characters table<integer, integer> The IDs of characters sitting in this vehicle
 
+--- @class SWVehicleAuthor
+--- @field name string The name of the author
+--- @field steam_id string The Steam ID of the author
+
 --- @class SWVehicleData
+--- @field name string The name of the vehicle
 --- @field tags_full string The tags as a string (ex. "tag1,tag2,tag3")
 --- @field tags table<number, string> The tags of the vehicle
 --- @field group_id integer The ID of the group this vehicle belongs to
@@ -1631,6 +1643,7 @@ function server.getCharacterItem(object_id, SLOT_NUMBER) end
 --- @field editable boolean Is the vehicle editable at workbenches
 --- @field invulnerable boolean Is the vehicle invulnerable
 --- @field static boolean Is the vehicle static
+--- @field authors table<integer, SWVehicleAuthor> The authors of the vehicle
 
 ---@alias SWRopeTypeEnum
 ---| 0 # rope
@@ -1693,6 +1706,11 @@ function server.clearRadiation() end
 --- @param vehicle_id number The unique id of the vehicle
 --- @return SWVehicleData vehicle_data, boolean is_success
 function server.getVehicleData(vehicle_id) end
+
+--- Returns all vehicles with a matching name
+--- @param name string The name to query
+--- @return table<integer, number> vehicle_ids, boolean is_success
+function server.getVehiclesByName(name) end
 
 --- Returns a vehicle's components
 --- @param vehicle_id number The unique id of the vehicle
