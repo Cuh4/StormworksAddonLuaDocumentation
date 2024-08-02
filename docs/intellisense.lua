@@ -26,12 +26,12 @@
 -- 02/08/2024
 --[[
     - Updated SWRopeTypeEnum
-    - Added description comments to server, property, debug, etc.
+    - Added description comments to server, property, debug, etc
 ]]
 
 -- 04/07/2024
 --[[
-    - Replaced "--- " with "-- ". Personal preference yet again.
+    - Replaced "--- " with "-- ". Personal preference yet again
 ]]
 
 -- 03/07/2024
