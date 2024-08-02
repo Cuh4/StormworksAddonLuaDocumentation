@@ -23,9 +23,15 @@
 ----------------------------------------
 -- Last updated for game version: v1.11.6 (The Animal Missions Update)
 
+-- 02/08/2024
+--[[
+    - Updated SWRopeTypeEnum
+    - Added description comments to server, property, debug, etc.
+]]
+
 -- 04/07/2024
 --[[
-    Replaced "--- " with "-- ". Personal preference yet again.
+    - Replaced "--- " with "-- ". Personal preference yet again.
 ]]
 
 -- 03/07/2024
@@ -175,10 +181,54 @@
 -------------------------
 -- DEFINITIONS
 -------------------------
+
+--[[
+    A table containing most of addon lua's functions.
+
+    server.announce("Server", "Hello World")
+]]
 server = {}
+
+--[[
+    A table containing functions that can be used for making your addon easily customizable by the user.<br>
+    Functions in this table must be saved in g_savedata.
+
+    g_savedata = {
+        example = property.checkbox("Example", false), -- defaults to false, name is "Example"
+        ... -- anything else you want in g_savedata
+    }
+]]
 property = {}
+
+--[[
+    A table containing functions that can be used for creating and manipulating matrices.<br>
+
+    local myMatrix = matrix.translation(0, 0, 0)
+    local x, y, z = matrix.position(myMatrix)
+
+    print(x, y, z) -- 0, 0, 0
+  ]]
 matrix = {}
+
+--[[
+    A table containing debug-related functions. Only `debug.log` exists for now.<br>
+
+    debug.log("Hello World")
+]]
 debug = {}
+
+--[[
+    A table used for saving numbers, strings, and booleans across addon reloads and sessions.<br>
+    Only access g_savedata after `onCreate` is called, otherwise values won't be what is expected.
+
+    g_savedata = {
+        example = "Hello World"
+    }
+    
+    function onCreate(is_create)
+        print(g_savedata.example) -- "Hello World"
+    end
+]]
 g_savedata = {}
 
 -------------------------
@@ -1654,7 +1704,8 @@ function server.getCharacterItem(object_id, SLOT_NUMBER) end
 ---| 0 # rope
 ---| 1 # hose
 ---| 2 # electric_cable
----| 3 # suspension_cable
+---| 4 # suspension_cable
+---| 6 # fishing_line
 
 -- Spawns a vehicle that is in an addon
 ---@param matrix SWMatrix The matrix the vehicle should be spawned at
