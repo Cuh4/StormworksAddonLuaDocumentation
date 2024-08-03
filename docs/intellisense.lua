@@ -1,186 +1,137 @@
---------------------------------------------------------------------------------
--- Intellisense File
---------------------------------------------------------------------------------
-
 ----------------------------------------
 --- // Info
 ----------------------------------------
--- This file contains every Addon Lua function, callback, and type.
 
--- Simply put this file in your code workspace, and you should have intellisense support (auto-completion, etc) for Addon Lua.
--- This extension is required: https://marketplace.visualstudio.com/items?itemName=sumneko.lua
-
-----------------------------------------
---- // Credit
-----------------------------------------
--- Created by: @nameouschangey (GitHub) and @Toast732 (GitHub)
--- Maintained by: @Cuh4 (GitHub)
-
--- GitHub Repo: https://github.com/Cuh4/StormworksAddonLuaDocumentation
-
-----------------------------------------
---- // Changelog (dd/mm/yy format)
-----------------------------------------
--- Last updated for game version: v1.11.6 (The Animal Missions Update)
-
--- 02/08/2024
 --[[
-    - Updated SWRopeTypeEnum
-    - Added description comments to server, property, debug, etc
-]]
+    This file contains every Addon Lua function, callback, and type.
+    Simply put this file in your code workspace and you should have intellisense support (auto-completion, etc) for Addon Lua.
 
--- 04/07/2024
---[[
-    - Replaced "--- " with "-- ". Personal preference yet again
-]]
+    This extension is required: https://marketplace.visualstudio.com/items?itemName=sumneko.lua
 
--- 03/07/2024
---[[
-    - Replaced "-- @" with "---@" as it's my personal preference and it's pretty much the standard
-    - Added server.getVehiclesByName()
-    - Added SWVehicleAuthor class
-    - Updated vehicle class for v1.11.6 (add "name" and "authors" field)
-]]
+    Created by: @nameouschangey (GitHub) and @Toast732 (GitHub)
+    Maintained by: @Cuh4 (GitHub)
 
--- 19/06/2024
---[[
-    - Fixed matrix.rotationToFaceXZ return type should be SWMatrix
-]]
-
--- 14/06/2024
---[[
-    - Added missing fluid types to SWTankFluidTypeEnum
-]]
-
--- 07/06/2024
---[[
-    - Added `---@meta _` see https://luals.github.io/wiki/annotations/#meta
-]]
-
--- 12/05/2024
---[[
-    - Switched around server.setCharacterSeated and server.setSeated (server.setSeated is no longer an alias but the actual thing)
-    - Added server.setCreatureSeated as an alias of server.setSeated
-]]
-
--- 08/05/2024
---[[
-    - Added descriptions for server.spawnTornado, server.spawnMeteor, server.spawnMeteorShower, server.spawnVolcano, server.getVolcanos, server.spawnWhirlpool, server.spawnTsunami
-    - Added server.getFishData, server.getFishHotspots
-    - Added SWFishData and SWFishHotSpotData classes
-    - Int states for fish equipment types are now shown in the equipment type description
-]]
-
--- 06/05/2024
---[[
-    - Rename SWOreTypeEnum to SWResourceTypeEnum
-    - Add missing resources to SWResourceTypeEnum (solid_propellant and fishes)
-]]
-
--- 05/05/2024
---[[
-    - Fix description for server.getWeather
-]]
-
--- 26/04/2024
---[[
-    - General formatting fixes
-]]
-
--- 25/04/2024
---[[
-    - Add ---@deprecated tag to all undocumented hidden alias functions
-]]
-
--- 24/04/2024
---[[
-    - Added creature_type, interactable, and animal_type fields to SWAddonComponentData (From v1.10.10 update)
-]]
-
--- 23/04/2024
---[[
-    - Added server.setSeated alias for server.setCharacterSeated
-    - Removed function descriptions for alias functions
-]]
-
--- 19/04/2024
---[[
-    - Fixed SWVehicleComponents class
-]]
-
--- 12/04/2024
---[[
-    - Add solid_propellant parameter to server.setTileInventory()
-    - Added missing argument for server.spawnMeteor(), is_spawn_tsunami
-]]
-
--- 28/03/2024
---[[
-    - Added documentation for server.clearOilSpill()
-    - Added documentation for callback onClearOilSpill()
-    - Added solid_propellant return annotation for server.getTileInventory()
-]]
-
--- 02/03/2024
---[[
-    - Fix return annotation for server.spawnVehicle (group_id --> primary_vehicle_id)
-]]
-
--- 21/02/2024
---[[
-    - Add missing documentation for server.spawnMeteorShower
-]]
-
--- 15/02/2024
---[[
-    - Documented hidden undocumented functions. They are mainly aliases of existing functions
-        These undocumented functions are untested. I found them in "_ENV.server", but I've never used them.
-        This means they might not even be callable, they do nothing, or I may have aliased it to the wrong function
-        
-    - Removed "BUG REPORT" text, couldn't find hyperlink for it
-]]
-
--- 01/02/2024
---[[
-    - Added drill_rod and fishing_lure to object type enum
-    - Added new map label types to map label type enum
-    - Added new equipment types to equipment type enum
-]]
-
--- 02/01/2024
---[[
-    - Added missing object_id attribute to the SWPlayer class.
-]]
-
--- 18/12/2023
---[[
-    - Fixed return annotation for server.spawnAddonVehicle being "group_id" and not "vehicle_id"
-    - Added missing is_success return annotation for server.getVehicleGroup
-]]
-
--- 12/12/2023
---[[
-    - Added server.dlcSpace(), forgot to add it earlier
-]]
-
--- 30/11/2023
---[[
-    - Fixed server.spawnAddonVehicle docs
-    - Fixed server.spawnVehicle docs
-    - Removed server.getVehicleName
+    Repo: https://github.com/Cuh4/StormworksAddonLuaDocumentation
 ]]
 
 ----------------------------------------
---- // Intellisense
+--- // Changelog
 ----------------------------------------
--------------------------
--- LUA LSP DIAGNOSTICS SETTINGS
--------------------------
+
+--[[
+    Last updated for game version: v1.11.6 (The Animal Missions Update)
+    The following changelog entries are in DD/MM/YY format.
+
+    -- 03/08/2024
+        - Changed overall structure for tidying reasons. 
+
+    -- 02/08/2024
+        - Updated SWRopeTypeEnum
+        - Added description comments to server, property, debug, etc
+
+    -- 04/07/2024
+        - Replaced "--- " with "-- ". Personal preference yet again
+
+    -- 03/07/2024
+        - Replaced "-- @" with "---@" as it's my personal preference and it's pretty much the standard
+        - Added server.getVehiclesByName()
+        - Added SWVehicleAuthor class
+        - Updated vehicle class for v1.11.6 (add "name" and "authors" field)
+
+    -- 19/06/2024
+        - Fixed matrix.rotationToFaceXZ return type should be SWMatrix
+
+    -- 14/06/2024
+        - Added missing fluid types to SWTankFluidTypeEnum
+
+    -- 07/06/2024
+        - Added `---@meta _` see https://luals.github.io/wiki/annotations/#meta
+
+    -- 12/05/2024
+        - Switched around server.setCharacterSeated and server.setSeated (server.setSeated is no longer an alias but the actual thing)
+        - Added server.setCreatureSeated as an alias of server.setSeated
+
+    -- 08/05/2024
+        - Added descriptions for server.spawnTornado, server.spawnMeteor, server.spawnMeteorShower, server.spawnVolcano, server.getVolcanos, server.spawnWhirlpool, server.spawnTsunami
+        - Added server.getFishData, server.getFishHotspots
+        - Added SWFishData and SWFishHotSpotData classes
+        - Int states for fish equipment types are now shown in the equipment type description
+
+    -- 06/05/2024
+        - Rename SWOreTypeEnum to SWResourceTypeEnum
+        - Add missing resources to SWResourceTypeEnum (solid_propellant and fishes)
+
+    -- 05/05/2024
+        - Fix description for server.getWeather
+
+    -- 26/04/2024
+        - General formatting fixes
+
+    -- 25/04/2024
+        - Add ---@deprecated tag to all undocumented hidden alias functions
+
+    -- 24/04/2024
+        - Added creature_type, interactable, and animal_type fields to SWAddonComponentData (From v1.10.10 update)
+
+    -- 23/04/2024
+        - Added server.setSeated alias for server.setCharacterSeated
+        - Removed function descriptions for alias functions
+
+    -- 19/04/2024
+        - Fixed SWVehicleComponents class
+
+    -- 12/04/2024
+        - Add solid_propellant parameter to server.setTileInventory()
+        - Added missing argument for server.spawnMeteor(), is_spawn_tsunami
+
+    -- 28/03/2024
+        - Added documentation for server.clearOilSpill()
+        - Added documentation for callback onClearOilSpill()
+        - Added solid_propellant return annotation for server.getTileInventory()
+
+    -- 02/03/2024
+        - Fix return annotation for server.spawnVehicle (group_id --> primary_vehicle_id)
+
+    -- 21/02/2024
+        - Add missing documentation for server.spawnMeteorShower
+
+    -- 15/02/2024
+        - Documented hidden undocumented functions. They are mainly aliases of existing functions
+            These undocumented functions are untested. I found them in "_ENV.server", but I've never used them.
+            This means they might not even be callable, they do nothing, or I may have aliased it to the wrong function
+            
+        - Removed "BUG REPORT" text, couldn't find hyperlink for it
+
+    -- 01/02/2024
+        - Added drill_rod and fishing_lure to object type enum
+        - Added new map label types to map label type enum
+        - Added new equipment types to equipment type enum
+
+    -- 02/01/2024
+        - Added missing object_id attribute to the SWPlayer class.
+
+    -- 18/12/2023
+        - Fixed return annotation for server.spawnAddonVehicle being "group_id" and not "vehicle_id"
+        - Added missing is_success return annotation for server.getVehicleGroup
+
+    -- 12/12/2023
+        - Added server.dlcSpace(), forgot to add it earlier
+
+    -- 30/11/2023
+        - Fixed server.spawnAddonVehicle docs
+        - Fixed server.spawnVehicle docs
+        - Removed server.getVehicleName
+]]
+
+----------------------------------------
+--- // Main
+----------------------------------------
+
 ---@meta _
 
--------------------------
--- DEFINITIONS
--------------------------
+-------------------
+-- Definitions
+-------------------
 
 --[[
     A table containing most of addon lua's functions.
@@ -231,9 +182,9 @@ debug = {}
 ]]
 g_savedata = {}
 
--------------------------
--- MATRICES
--------------------------
+-------------------
+-- Matrices
+-------------------
 
 ---@class SWMatrix
 ---@field [1] number
@@ -321,11 +272,9 @@ function matrix.multiplyXYZW(matrix1, x, y, z, w) end
 ---@return SWMatrix required_rotation
 function matrix.rotationToFaceXZ(x, z) end
 
-
-
--------------------------
--- CALLBACKS
--------------------------
+-------------------
+-- Callbacks
+-------------------
 
 -- Called when all oil spills are cleared
 function onClearOilSpill() end
@@ -574,8 +523,9 @@ function onVolcano(transform) end
 ---@param vehicle_id integer the vehicle_id which caused the oil spill to change, vehicle_id is -1 for script commands and oil tick updates.
 function onOilSpill(tile_x, tile_z, delta, total, vehicle_id) end
 
---------------------------------------------------------------------------------
---------------------------------------------------------------------------------
+-------------------
+-- Enums
+-------------------
 
 ---@alias SWObjectTypeEnum
 ---| 0 # none
@@ -740,7 +690,6 @@ function onOilSpill(tile_x, tile_z, delta, total, vehicle_id) end
 ---| 54 # viperfish
 ---| 55 # yellowfin_tuna
 
-
 ---@class SWGameSettingEnum : string
 ---@field third_person  string,
 ---@field third_person_vehicle  string,
@@ -778,9 +727,9 @@ function onOilSpill(tile_x, tile_z, delta, total, vehicle_id) end
 ---@field unlock_all_components     string,
 ---@field override_weather  string,
 
---------------------------------------------------------------------------------
--- ADDON
-------------------------------------------------------------------------------
+-------------------
+-- Addon
+-------------------
 
 ---@alias SWZoneTypeEnum
 ---| 0 # box
@@ -815,8 +764,6 @@ function onOilSpill(tile_x, tile_z, delta, total, vehicle_id) end
 ---@field env_spawn_count  number The amount of environment spawns
 ---@field env_mod          boolean Whether the location is an environment mod
 ---@field component_count  number The amount of components in this location
-
-
 
 ---@class SWAddonComponentData
 ---@field tags_full                        string
@@ -935,18 +882,9 @@ function server.spawnAddonComponent(matrix, addon_index, location_index, compone
 ---@deprecated
 server.spawnMissionComponent = server.spawnAddonComponent
 
-
-
-
-
-
-
-
-
-
--------------------------
+-------------------
 -- UI
--------------------------
+-------------------
 
 ---@alias SWLabelTypeEnum
 ---| 0 # none
@@ -1124,19 +1062,9 @@ function server.setPopupScreen(peer_id, ui_id, name, is_show, text, horizontal_o
 ---@param ui_id integer The unique ui id to use
 function server.removePopup(peer_id, ui_id) end
 
-
-
-
-
-
-
-
-
-
-
--------------------------
+-------------------
 -- Objects
--------------------------
+-------------------
 
 ---@class SWPlayer
 ---@field id number The peer ID of the player (as seen in the server player list)
@@ -1340,7 +1268,6 @@ function server.setCharacterItem(object_id, slot, EQUIPMENT_ID, is_active, integ
 ---@return number equipment_id, boolean is_success
 function server.getCharacterItem(object_id, SLOT_NUMBER) end
 
-
 ---@alias SWOutfitTypeEnum
 ---| 0 # none
 ---| 1 # worker
@@ -1354,7 +1281,6 @@ function server.getCharacterItem(object_id, SLOT_NUMBER) end
 ---| 9 # medical
 ---| 10 # wetsuit
 ---| 11 # civilian
-
 
 ---@alias SWAnimalTypeEnum
 ---| 0 # shark
@@ -1479,7 +1405,6 @@ function server.getCharacterItem(object_id, SLOT_NUMBER) end
 ---| 8 # Small_Equipment_Slot
 ---| 9 # Small_Equipment_Slot
 ---| 10 # Outfit_Slot
-
 
 ---@alias SWEquipmentTypeEnum
 ---| 0 # none
@@ -1608,9 +1533,9 @@ function server.getCharacterItem(object_id, SLOT_NUMBER) end
 ---| 123 # viperfish [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
 ---| 124 # yellowfin_tuna [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
 
--------------------------
+-------------------
 -- Vehicles
--------------------------
+-------------------
 
 ---@class SWVoxelPos the voxel position of the component (as set in the editor, is not updated with its current position in game)
 ---@field x number voxel_x position
@@ -2019,24 +1944,9 @@ function server.setVehicleInvulnerable(vehicle_id, is_invulnerable) end
 ---@return boolean is_success
 function server.setVehicleShowOnMap(vehicle_id, is_show_on_map) end
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
--------------------------
+-------------------
 -- AI
--------------------------
+-------------------
 
 ---@class SWTileData
 ---@field name string The name of the tile (ex. ...)
@@ -2080,18 +1990,9 @@ function server.setAITargetCharacter(object_id, target_object_id) end
 ---@param target_vehicle_id number|nil target vehicle id to go target, set nil to clear its target
 function server.setAITargetVehicle(object_id, target_vehicle_id) end
 
-
-
-
-
-
-
-
-
-
--------------------------
--- GAME
--------------------------
+-------------------
+-- Game
+-------------------
 
 ---@class SWGameSettings
 ---@field third_person             boolean
@@ -2388,17 +2289,9 @@ function server.pathfindOcean(matrix_start, matrix_end) end
 ---@return table<integer, SWOilDepositData> oil_deposits the oil deposits in this world.
 function server.getOilDeposits() end
 
-
-
-
-
-
-
-
-
--------------------------
--- MISC
--------------------------
+-------------------
+-- Misc
+-------------------
 
 ---@alias SWEventIDEnum
 ---| 0 # NONE
