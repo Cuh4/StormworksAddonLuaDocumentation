@@ -1,16 +1,19 @@
 ![In-Game Screenshot](imgs/1.png)
 
----
+# Stormworks Addon Lua Documentation
 
-# *Stormworks Addon Lua Documentation*
+<div align="center">
+    <img src="https://img.shields.io/badge/Stormworks-Build%20and%20Rescue-blue?style=for-the-badge">
+    <img src="https://img.shields.io/badge/lua-%232C2D72.svg?style=for-the-badge&logo=lua&logoColor=white">
+</div>
 
 ## 📚 Overview
-GitHub repository containing all of the documentation for Stormworks: Build and Rescue's Addon Lua.
+A simple repo containing the Stormworks Addon Lua documentation.
 
-Unfortunately, the documentation in this repository is just categorized screenshots of the in-game documentation instead of actual text (⚠️ **Screenshots no longer maintained**). However, there is an `intellisense.lua` file containing all Addon Lua functions, types, and callbacks that can provide intellisense (auto-completion, etc) as long as you have the file in your addon workspace and if you have the Lua LSP VSCode extension installed and enabled.
+All of the in-game documentation is ported to this repo via screenshots. They can be found in `/docs`. **These screenshots are no longer maintained.**
 
-**The documentation can be found in `/docs`.**
+For intellisense (auto-completion, etc) with Visual Studio Code and the Lua extension, `/docs/intellisense.lua` is what you're loooking for.
 
 ## 👨‍🦱 Credit
-- **Cuh4** ([GitHub](https://github.com/Cuh4)) - Maintainer
-- **NameousChangey** ([GitHub](https://github.com/nameouschangey)) & **Toastery** ([GitHub](https://github.com/Toast732)) - Original Creators of `/docs/intellisense.lua`
+- **[Cuh4](https://github.com/Cuh4)** - Maintainer
+- **[NameousChangey](https://github.com/nameouschangey)** & **[Toastery](https://github.com/Toast732)** - Original Creators of `/docs/intellisense.lua`
