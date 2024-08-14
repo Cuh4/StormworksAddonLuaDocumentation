@@ -19,8 +19,11 @@
 ----------------------------------------
 
 --[[
-    Last updated for game version: v1.11.6 (The Animal Missions Update)
+    Last updated for game version: v1.12.0 (The Lobster Pot Major Update)
     The following changelog entries are in DD/MM/YY format.
+
+    -- 14/08/2024
+        - Added the new lobsters and crabs to `SWEquipmentTypeEnum`.
 
     -- 03/08/2024
         - Changed overall structure for tidying reasons. 
@@ -1532,6 +1535,30 @@ function server.getCharacterItem(object_id, SLOT_NUMBER) end
 ---| 122 # tubeshoulders_fish [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
 ---| 123 # viperfish [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
 ---| 124 # yellowfin_tuna [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
+---| 125 # blue_crab [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
+---| 126 # brown_box_crab [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
+---| 127 # coconut_crab [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
+---| 128 # dungeness_crab [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
+---| 129 # furry_lobster [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
+---| 130 # homarus_americanus [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
+---| 131 # homarus_gammarus [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
+---| 132 # horseshoe_crab [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
+---| 133 # jasus_edwardsii [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
+---| 134 # jasus_lalandii [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
+---| 135 # jonah_crab [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
+---| 136 # king_crab [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
+---| 137 # mud_crab [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
+---| 138 # munida_lobster [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
+---| 139 # ornate_rock_lobster [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
+---| 140 # panulirus_interruptus [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
+---| 141 # red_king_crab [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
+---| 142 # reef_lobster [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
+---| 143 # slipper_lobster [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
+---| 144 # snow_crab [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
+---| 145 # southern_rock_lobster [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
+---| 146 # spider_crab [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
+---| 147 # spiny_lobster [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
+---| 148 # stone_crab [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
 
 -------------------
 -- Vehicles
