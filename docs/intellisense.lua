@@ -24,6 +24,8 @@
 
     -- 14/08/2024
         - Added the new lobsters and crabs to `SWEquipmentTypeEnum`.
+        - Fixed incorrect `SWNotificationTypeEnum` names.
+        - Fixed `SWNotificationTypeEnum` being spelt as `SWNotifiationTypeEnum`
 
     -- 03/08/2024
         - Changed overall structure for tidying reasons. 
@@ -939,7 +941,7 @@ server.spawnMissionComponent = server.spawnAddonComponent
 ---| 18 # attack
 ---| 19 # defend
 
----@alias SWNotifiationTypeEnum
+---@alias SWNotificationTypeEnum
 ---| 0 new_mission
 ---| 1 new_mission_critical
 ---| 2 failed_mission
@@ -949,9 +951,9 @@ server.spawnMissionComponent = server.spawnAddonComponent
 ---| 6 network_disconnect
 ---| 7 network_info
 ---| 8 chat_message
----| 9 star
----| 10 network_disconnect_critical
----| 11 science_flask
+---| 9 rewards
+---| 10 network_info_critical
+---| 11 research_complete
 
 -- Messages player(s) using the in-game chat
 ---@param name string The display name of the user sending the message
@@ -968,7 +970,7 @@ function server.command(message) end
 ---@param peerID number The peerID of the player you want to message. -1 messages all players
 ---@param title string The title of the notification
 ---@param message string The message you want to send the player(s)
----@param notificationType SWNotifiationTypeEnum number, Changes how the notification looks. Refer to notificationTypes
+---@param notificationType SWNotificationTypeEnum number, Changes how the notification looks. Refer to notificationTypes
 function server.notify(peerID, title, message, notificationType) end
 
 -- Gets a unique ID to be used with other UI functions. Functions similar to a vehicle ID. A UI id can be used for multiple lines and map objects but each popup with a different text or position must have it's own ID
