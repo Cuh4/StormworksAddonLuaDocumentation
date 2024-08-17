@@ -23,6 +23,7 @@
     The following changelog entries are in DD/MM/YY format.
 
     -- 17/08/2024
+        - Fixed up `server.setAIState` `AI_STATE` parameter description. It didn't cover all AI states.
         - Made `server.setCreatureTooltip` an alias instead of it having its own function
 
     -- 14/08/2024
@@ -1995,7 +1996,7 @@ function server.setVehicleShowOnMap(vehicle_id, is_show_on_map) end
 
 -- Sets the AI state of a character
 ---@param object_id number The unique id of the character
----@param AI_STATE number 0 = none, 1 = path to destination, see in-game
+---@param AI_STATE number **Ship Pilot**: 0 = none, 1 = path to destination<br>**Heli Pilot**: 0 = None, 1 = path to destination, 2 = path to destination (accurate), 3 = gun run<br>**Plane Pilot**: 0 = none, 1 = path to destination, 2 = gun run<br>**Gunner**: 0 = none, 1 = fire at target<br>**Designator**: 0 = none, 1 = aim at target
 function server.setAIState(object_id, AI_STATE) end
 
 -- Sets the target destination for the AI
