@@ -22,6 +22,9 @@
     Last updated for game version: v1.12.0 (The Lobster Pot Major Update)
     The following changelog entries are in DD/MM/YY format.
 
+    -- 17/08/2024
+        - Made `server.setCreatureTooltip` an alias instead of it having its own function
+
     -- 14/08/2024
         - Added the new lobsters and crabs to `SWEquipmentTypeEnum`.
         - Fixed incorrect `SWNotificationTypeEnum` names.
@@ -1244,18 +1247,14 @@ function server.getCharacterVehicle(object_id) end
 ---@param is_ai boolean lets the character do seat controls
 function server.setCharacterData(object_id, hp, is_interactable, is_ai) end
 
--- Sets the character's tooltip
+-- Sets the character's/creature's tooltip
 -- Put after the character's "Pickup" and "Follow" tooltips without a line break.
 -- Doesn't support setting a player's tooltip
 ---@param object_id integer the character's object_id which you want to set the tooltip of
 ---@param display_name string the tooltip to put after the game's default tooltips, such as the game's Hold [key1][key2] to pickup tooltips
 function server.setCharacterTooltip(object_id, display_name) end
 
----# Sets the creature's tooltip
----put after the creature's "Pickup" and "Follow" tooltips without a line break.
----@param object_id integer the creature's object_id which you want to set the tooltip of
----@param display_name string the tooltip to put after the game's default tooltips, such as the game's Hold [key1][key2] to pickup tooltips
-function server.setCreatureTooltip(object_id, display_name) end
+server.setCreatureTooltip = server.setCharacterTooltip
 
 -- Set the equipment a character has
 ---@param object_id number The unique id of the character
