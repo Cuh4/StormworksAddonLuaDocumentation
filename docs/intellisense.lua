@@ -22,20 +22,23 @@
     Last updated for game version: v1.12.0 (The Lobster Pot Major Update)
     The following changelog entries are in DD/MM/YY format.
 
+    -- 28/08/2024
+        - Fixed `SWGameSettingsEnum` using `---@class` instead of `---@alias`
+
     -- 17/08/2024
-        - Fixed up `server.setAIState` `AI_STATE` parameter description. It didn't cover all AI states.
+        - Fixed up `server.setAIState` `AI_STATE` parameter description. It didn't cover all AI states
         - Made `server.setCreatureTooltip` an alias instead of it having its own function
 
     -- 14/08/2024
-        - Added the new lobsters and crabs to `SWEquipmentTypeEnum`.
-        - Fixed incorrect `SWNotificationTypeEnum` names.
+        - Added the new lobsters and crabs to `SWEquipmentTypeEnum`
+        - Fixed incorrect `SWNotificationTypeEnum` names
         - Fixed `SWNotificationTypeEnum` being spelt as `SWNotifiationTypeEnum`
 
     -- 03/08/2024
-        - Changed overall structure for tidying reasons. 
+        - Changed overall structure for tidying reasons.
 
     -- 02/08/2024
-        - Updated SWRopeTypeEnum
+        - Updated SWRopeTypeEnum.
         - Added description comments to server, property, debug, etc
 
     -- 04/07/2024
@@ -699,42 +702,42 @@ function onOilSpill(tile_x, tile_z, delta, total, vehicle_id) end
 ---| 54 # viperfish
 ---| 55 # yellowfin_tuna
 
----@class SWGameSettingEnum : string
----@field third_person  string,
----@field third_person_vehicle  string,
----@field vehicle_damage    string,
----@field player_damage     string,
----@field npc_damage    string,
----@field sharks    string,
----@field fast_travel   string,
----@field teleport_vehicle  string,
----@field rogue_mode    string,
----@field auto_refuel   string,
----@field megalodon     string,
----@field map_show_players  string,
----@field map_show_vehicles     string,
----@field show_3d_waypoints     string,
----@field show_name_plates  string,
----@field day_night_length  string,  -- currently cannot be written to
----@field sunrise   string,  -- currently cannot be written to
----@field sunset    string,  -- currently cannot be written to
----@field infinite_money    string,
----@field settings_menu     string,
----@field unlock_all_islands    string,
----@field infinite_batteries    string,
----@field infinite_fuel     string,
----@field engine_overheating    string,
----@field no_clip   string,
----@field map_teleport  string,
----@field cleanup_vehicle   string,
----@field clear_fow     string,  -- clear fog of war
----@field vehicle_spawning  string,
----@field photo_mode    string,
----@field respawning    string,
----@field settings_menu_lock    string,
----@field despawn_on_leave  string,  -- despawn player characters when they leave a server
----@field unlock_all_components     string,
----@field override_weather  string,
+---@alias SWGameSettingsEnum
+---| "third_person"
+---| "third_person_vehicle"
+---| "vehicle_damage"
+---| "player_damage"
+---| "npc_damage"
+---| "sharks"
+---| "fast_travel"
+---| "teleport_vehicle"
+---| "rogue_mode"
+---| "auto_refuel"
+---| "megalodon"
+---| "map_show_players"
+---| "map_show_vehicles"
+---| "show_3d_waypoints"
+---| "show_name_plates"
+---| "day_night_length"
+---| "sunrise"
+---| "sunset"
+---| "infinite_money"
+---| "settings_menu"
+---| "unlock_all_islands"
+---| "infinite_batteries"
+---| "infinite_fuel"
+---| "engine_overheating"
+---| "no_clip"
+---| "map_teleport"
+---| "cleanup_vehicle"
+---| "clear_fow"
+---| "vehicle_spawning"
+---| "photo_mode"
+---| "respawning"
+---| "settings_menu_lock"
+---| "despawn_on_leave"
+---| "unlock_all_components"
+---| "override_weather"
 
 -------------------
 -- Addon
