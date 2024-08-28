@@ -23,6 +23,7 @@
     The following changelog entries are in DD/MM/YY format.
 
     -- 28/08/2024
+        - `SWGameSettingEnum` and `SWGameSettings` are now up-to-date
         - Fixed `SWGameSettingEnum` using `---@class` instead of `---@alias`
 
     -- 17/08/2024
@@ -703,41 +704,42 @@ function onOilSpill(tile_x, tile_z, delta, total, vehicle_id) end
 ---| 55 # yellowfin_tuna
 
 ---@alias SWGameSettingEnum
----| "third_person"
----| "third_person_vehicle"
----| "vehicle_damage"
----| "player_damage"
----| "npc_damage"
----| "sharks"
----| "fast_travel"
----| "teleport_vehicle"
----| "rogue_mode"
----| "auto_refuel"
----| "megalodon"
----| "map_show_players"
----| "map_show_vehicles"
----| "show_3d_waypoints"
----| "show_name_plates"
----| "day_night_length"
----| "sunrise"
----| "sunset"
----| "infinite_money"
----| "settings_menu"
----| "unlock_all_islands"
----| "infinite_batteries"
----| "infinite_fuel"
----| "engine_overheating"
----| "no_clip"
----| "map_teleport"
----| "cleanup_vehicle"
----| "clear_fow"
----| "vehicle_spawning"
 ---| "photo_mode"
----| "respawning"
----| "settings_menu_lock"
----| "despawn_on_leave"
----| "unlock_all_components"
+---| "map_show_players"
+---| "sharks"
+---| "infinite_fuel"
+---| "lightning"
+---| "show_name_plates"
 ---| "override_weather"
+---| "megalodon"
+---| "infinite_money"
+---| "night_length"
+---| "fast_travel"
+---| "cleanup_vehicle"
+---| "settings_menu"
+---| "settings_menu_lock"
+---| "rogue_mode"
+---| "ceasefire"
+---| "vehicle_damage"
+---| "vehicle_spawning"
+---| "engine_overheating"
+---| "third_person_vehicle"
+---| "infinite_ammo"
+---| "no_clip"
+---| "unlock_all_components"
+---| "day_length"
+---| "player_damage"
+---| "map_show_vehicles"
+---| "despawn_on_leave"
+---| "third_person"
+---| "infinite_batteries"
+---| "teleport_vehicle"
+---| "clear_fow"
+---| "npc_damage"
+---| "show_3d_waypoints"
+---| "map_teleport"
+---| "respawning"
+---| "unlock_all_islands"
 
 -------------------
 -- Addon
@@ -2027,41 +2029,41 @@ function server.setAITargetVehicle(object_id, target_vehicle_id) end
 -------------------
 
 ---@class SWGameSettings
----@field third_person             boolean
----@field third_person_vehicle     boolean
----@field vehicle_damage           boolean
----@field player_damage            boolean
----@field npc_damage               boolean
----@field sharks                   boolean
----@field fast_travel              boolean
----@field teleport_vehicle         boolean
----@field rogue_mode               boolean
----@field auto_refuel              boolean
----@field megalodon                boolean
----@field map_show_players         boolean
----@field map_show_vehicles        boolean
----@field show_3d_waypoints        boolean
----@field show_name_plates         boolean
----@field day_night_length         number currently cannot be written to
----@field sunrise                  number currently cannot be written to
----@field sunset                   number currently cannot be written to
----@field infinite_money           boolean
----@field settings_menu            boolean
----@field unlock_all_islands       boolean
----@field infinite_batteries       boolean
----@field infinite_fuel            boolean
----@field engine_overheating       boolean
----@field no_clip                  boolean
----@field map_teleport             boolean
----@field cleanup_vehicle          boolean
----@field clear_fow                boolean make entire map visible. cannot be undone
----@field vehicle_spawning         boolean off by default on dedicated servers
----@field photo_mode               boolean
----@field respawning               boolean
----@field settings_menu_lock       boolean Checkbox (un)checks properly for all players but players can still edit the settings regardless of the state set here.
----@field despawn_on_leave         boolean despawn players when they leave the server
----@field unlock_all_components    boolean
----@field override_weather         boolean
+---@field photo_mode boolean
+---@field map_show_players boolean
+---@field sharks boolean
+---@field infinite_fuel boolean
+---@field lightning boolean
+---@field show_name_plates boolean
+---@field override_weather boolean
+---@field megalodon boolean
+---@field infinite_money boolean
+---@field day_length number
+---@field fast_travel boolean
+---@field cleanup_vehicle boolean
+---@field settings_menu boolean
+---@field settings_menu_lock boolean
+---@field rogue_mode boolean
+---@field ceasefire boolean
+---@field vehicle_damage boolean
+---@field vehicle_spawning boolean
+---@field engine_overheating boolean
+---@field third_person_vehicle boolean
+---@field infinite_ammo boolean
+---@field no_clip boolean
+---@field unlock_all_components boolean
+---@field player_damage boolean
+---@field map_show_vehicles boolean
+---@field despawn_on_leave boolean
+---@field third_person boolean
+---@field infinite_batteries boolean
+---@field teleport_vehicle boolean
+---@field clear_fow boolean
+---@field npc_damage boolean
+---@field show_3d_waypoints boolean
+---@field map_teleport boolean
+---@field respawning boolean
+---@field unlock_all_islands boolean
 
 ---@class SWVolcano
 ---@field x number
