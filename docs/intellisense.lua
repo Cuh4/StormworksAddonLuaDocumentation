@@ -23,7 +23,7 @@
     The following changelog entries are in DD/MM/YY format.
 
     -- 28/08/2024
-        - Fixed `SWGameSettingsEnum` using `---@class` instead of `---@alias`
+        - Fixed `SWGameSettingEnum` using `---@class` instead of `---@alias`
 
     -- 17/08/2024
         - Fixed up `server.setAIState` `AI_STATE` parameter description. It didn't cover all AI states
@@ -702,7 +702,7 @@ function onOilSpill(tile_x, tile_z, delta, total, vehicle_id) end
 ---| 54 # viperfish
 ---| 55 # yellowfin_tuna
 
----@alias SWGameSettingsEnum
+---@alias SWGameSettingEnum
 ---| "third_person"
 ---| "third_person_vehicle"
 ---| "vehicle_damage"
