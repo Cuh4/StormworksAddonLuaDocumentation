@@ -22,6 +22,9 @@
     Last updated for game version: v1.12.0 (The Lobster Pot Major Update)
     The following changelog entries are in DD/MM/YY format.
 
+    -- 02/09/2024
+        - Fix `server.spawnTornado` having an invalid number of arguments (`magnitude` argument doesn't exist)
+
     -- 28/08/2024
         - `SWGameSettingEnum` and `SWGameSettings` are now up-to-date
         - Fixed `SWGameSettingEnum` using `---@class` instead of `---@alias`
@@ -2144,9 +2147,8 @@ function server.cancelGerstner() end
 
 -- Spawns a tornado
 ---@param transform_matrix SWMatrix
----@param magnitude number magnitude 0->1
 ---@return boolean is_success
-function server.spawnTornado(transform_matrix, magnitude) end
+function server.spawnTornado(transform_matrix) end
 
 -- Spawns a meteor
 ---@param transform_matrix SWMatrix
