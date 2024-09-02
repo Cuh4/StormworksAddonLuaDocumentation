@@ -23,6 +23,7 @@
     The following changelog entries are in DD/MM/YY format.
 
     -- 02/09/2024
+        - Fix `server.spawnVolcano` having an invalid number of arguments too (again, `magnitude` argument doesn't exist)
         - Fix `server.spawnTornado` having an invalid number of arguments (`magnitude` argument doesn't exist)
 
     -- 28/08/2024
@@ -2166,9 +2167,8 @@ function server.spawnMeteorShower(transform_matrix, magnitude, is_spawn_tsunami)
 
 -- Spawns a volcano
 ---@param transform_matrix SWMatrix
----@param magnitude number magnitude 0->1
 ---@return boolean is_success
-function server.spawnVolcano(transform_matrix, magnitude) end
+function server.spawnVolcano(transform_matrix) end
 
 -- Gets all volcanos
 ---@return table<number, SWVolcano> volcanos
