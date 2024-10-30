@@ -22,6 +22,9 @@
     Last updated for game version: v1.12.0 (The Lobster Pot Major Update)
     The following changelog entries are in DD/MM/YY format.
 
+    -- 30/10/2024
+        - Fix `server.getVehicleSign` and `server.getVehicleSeat` having their `name` parameter hinted as a number instead of a string
+
     -- 02/09/2024
         - Fix `server.spawnVolcano` having an invalid number of arguments too (again, `magnitude` argument doesn't exist)
         - Fix `server.spawnTornado` having an invalid number of arguments (`magnitude` argument doesn't exist)
@@ -1798,14 +1801,14 @@ function server.getVehicleTank(vehicle_id, tank_name) end
 -- Gets a vehicle's sign data
 ---@overload fun(vehicle_id: number, voxel_x: number, voxel_y: number, voxel_z: number)
 ---@param vehicle_id number The unique ID of the vehicle to get the sign on
----@param sign_name number The name of the sign to get
+---@param sign_name string The name of the sign to get
 ---@return SWVehicleSignData data, boolean is_success
 function server.getVehicleSign(vehicle_id, sign_name) end
 
 -- Gets a vehicle's seat data
 ---@overload fun(vehicle_id: number, voxel_x: number, voxel_y: number, voxel_z: number)
 ---@param vehicle_id number The unique ID of the vehicle to get the seat on
----@param seat_name number The name of the seat to get
+---@param seat_name string The name of the seat to get
 ---@return SWVehicleSeatData data, boolean is_success
 function server.getVehicleSeat(vehicle_id, seat_name) end
 
