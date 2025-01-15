@@ -19,8 +19,13 @@
 ----------------------------------------
 
 --[[
-    Last updated for game version: v1.12.0 (The Lobster Pot Major Update)
+    Last updated for game version: v1.13.4 (The Viewing Scope Update)
+        Note that even if the above version is outdated, updates to this may still be applied (usually corrections).
+
     The following changelog entries are in DD/MM/YY format.
+
+    -- 15/01/2024
+        - Added `group_id` return value to `server.spawnAddonVehicle` and `server.spawnVehicle` as the new game update v1.13.4 now returns the vehicle group ID with the aforementioned functions.
 
     -- 30/10/2024
         - Fix `server.getVehicleSign` and `server.getVehicleSeat` having their `name` parameter hinted as a number instead of a string
@@ -1677,13 +1682,13 @@ function server.getCharacterItem(object_id, SLOT_NUMBER) end
 ---@param matrix SWMatrix The matrix the vehicle should be spawned at
 ---@param addon_index number The index of the addon as it is found in the missions folder. There is no set order and it may not be the same next execution.
 ---@param component_id number NOT THE COMPONENT_INDEX. The component_id can be found using getLocationComponentData
----@return number primary_vehicle_id, boolean is_success, table<integer, integer> vehicle_ids
+---@return number primary_vehicle_id, boolean is_success, table<integer, integer> vehicle_ids, number group_id
 function server.spawnAddonVehicle(matrix, addon_index, component_id) end
 
 -- Spawns a vehicle from your vehicle save folder. NOTE: will spawn an "empty" vehicle if a vehicle file cannot be found. It is impossible to distinguish from an actual vehicle server-wise.
 ---@param matrix SWMatrix The matrix the vehicle should be spawned at
 ---@param save_name string The name of the save file to spawn
----@return number primary_vehicle_id, boolean is_success, table<integer, integer> vehicle_ids
+---@return number primary_vehicle_id, boolean is_success, table<integer, integer> vehicle_ids, number group_id
 function server.spawnVehicle(matrix, save_name) end
 
 ---@deprecated
