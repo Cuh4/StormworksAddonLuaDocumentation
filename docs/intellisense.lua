@@ -20,132 +20,10 @@
 
 --[[
     Last updated for game version: v1.13.4 (The Viewing Scope Update)
-        Note that even if the above version is outdated, updates to this may still be applied (usually corrections).
+        Note that even if the above version is outdated, it means no functions were added, changed or removed since the update.
+        Corrections and changes to the documentation may still be made after the version is outdated anyway.
 
-    The following changelog entries are in DD/MM/YY format.
-
-    -- 15/01/2024
-        - Added `group_id` return value to `server.spawnAddonVehicle` and `server.spawnVehicle` as the new game update v1.13.4 now returns the vehicle group ID with the aforementioned functions.
-
-    -- 30/10/2024
-        - Fix `server.getVehicleSign` and `server.getVehicleSeat` having their `name` parameter hinted as a number instead of a string
-
-    -- 02/09/2024
-        - Fix `server.spawnVolcano` having an invalid number of arguments too (again, `magnitude` argument doesn't exist)
-        - Fix `server.spawnTornado` having an invalid number of arguments (`magnitude` argument doesn't exist)
-
-    -- 28/08/2024
-        - `SWGameSettingEnum` and `SWGameSettings` are now up-to-date
-        - Fixed `SWGameSettingEnum` using `---@class` instead of `---@alias`
-
-    -- 17/08/2024
-        - Fixed up `server.setAIState` `AI_STATE` parameter description. It didn't cover all AI states
-        - Made `server.setCreatureTooltip` an alias instead of it having its own function
-
-    -- 14/08/2024
-        - Added the new lobsters and crabs to `SWEquipmentTypeEnum`
-        - Fixed incorrect `SWNotificationTypeEnum` names
-        - Fixed `SWNotificationTypeEnum` being spelt as `SWNotifiationTypeEnum`
-
-    -- 03/08/2024
-        - Changed overall structure for tidying reasons.
-
-    -- 02/08/2024
-        - Updated SWRopeTypeEnum.
-        - Added description comments to server, property, debug, etc
-
-    -- 04/07/2024
-        - Replaced "--- " with "-- ". Personal preference yet again
-
-    -- 03/07/2024
-        - Replaced "-- @" with "---@" as it's my personal preference and it's pretty much the standard
-        - Added server.getVehiclesByName()
-        - Added SWVehicleAuthor class
-        - Updated vehicle class for v1.11.6 (add "name" and "authors" field)
-
-    -- 19/06/2024
-        - Fixed matrix.rotationToFaceXZ return type should be SWMatrix
-
-    -- 14/06/2024
-        - Added missing fluid types to SWTankFluidTypeEnum
-
-    -- 07/06/2024
-        - Added `---@meta _` see https://luals.github.io/wiki/annotations/#meta
-
-    -- 12/05/2024
-        - Switched around server.setCharacterSeated and server.setSeated (server.setSeated is no longer an alias but the actual thing)
-        - Added server.setCreatureSeated as an alias of server.setSeated
-
-    -- 08/05/2024
-        - Added descriptions for server.spawnTornado, server.spawnMeteor, server.spawnMeteorShower, server.spawnVolcano, server.getVolcanos, server.spawnWhirlpool, server.spawnTsunami
-        - Added server.getFishData, server.getFishHotspots
-        - Added SWFishData and SWFishHotSpotData classes
-        - Int states for fish equipment types are now shown in the equipment type description
-
-    -- 06/05/2024
-        - Rename SWOreTypeEnum to SWResourceTypeEnum
-        - Add missing resources to SWResourceTypeEnum (solid_propellant and fishes)
-
-    -- 05/05/2024
-        - Fix description for server.getWeather
-
-    -- 26/04/2024
-        - General formatting fixes
-
-    -- 25/04/2024
-        - Add ---@deprecated tag to all undocumented hidden alias functions
-
-    -- 24/04/2024
-        - Added creature_type, interactable, and animal_type fields to SWAddonComponentData (From v1.10.10 update)
-
-    -- 23/04/2024
-        - Added server.setSeated alias for server.setCharacterSeated
-        - Removed function descriptions for alias functions
-
-    -- 19/04/2024
-        - Fixed SWVehicleComponents class
-
-    -- 12/04/2024
-        - Add solid_propellant parameter to server.setTileInventory()
-        - Added missing argument for server.spawnMeteor(), is_spawn_tsunami
-
-    -- 28/03/2024
-        - Added documentation for server.clearOilSpill()
-        - Added documentation for callback onClearOilSpill()
-        - Added solid_propellant return annotation for server.getTileInventory()
-
-    -- 02/03/2024
-        - Fix return annotation for server.spawnVehicle (group_id --> primary_vehicle_id)
-
-    -- 21/02/2024
-        - Add missing documentation for server.spawnMeteorShower
-
-    -- 15/02/2024
-        - Documented hidden undocumented functions. They are mainly aliases of existing functions
-            These undocumented functions are untested. I found them in "_ENV.server", but I've never used them.
-            This means they might not even be callable, they do nothing, or I may have aliased it to the wrong function
-            
-        - Removed "BUG REPORT" text, couldn't find hyperlink for it
-
-    -- 01/02/2024
-        - Added drill_rod and fishing_lure to object type enum
-        - Added new map label types to map label type enum
-        - Added new equipment types to equipment type enum
-
-    -- 02/01/2024
-        - Added missing object_id attribute to the SWPlayer class.
-
-    -- 18/12/2023
-        - Fixed return annotation for server.spawnAddonVehicle being "group_id" and not "vehicle_id"
-        - Added missing is_success return annotation for server.getVehicleGroup
-
-    -- 12/12/2023
-        - Added server.dlcSpace(), forgot to add it earlier
-
-    -- 30/11/2023
-        - Fixed server.spawnAddonVehicle docs
-        - Fixed server.spawnVehicle docs
-        - Removed server.getVehicleName
+    Changelog available at the GitHub repo @ https://github.com/Cuh4/StormworksAddonLuaDocumentation.
 ]]
 
 ----------------------------------------
@@ -897,6 +775,7 @@ function server.getLocationData(addon_index, location_index) end
 ---@return SWAddonComponentData component_data, boolean is_success
 function server.getLocationComponentData(addon_index, location_index, component_index) end
 
+-- Spawns a component within an addon's misson location. This can be used to spawn vehicles, objects, NPCs, fires, etc.
 ---@param matrix SWMatrix The matrix the mission object should be spawned at
 ---@param addon_index number The index of the addon as it is found in the missions folder. There is no set order and it may not be the same next execution.
 ---@param location_index number The unique index of the location that the component is in
@@ -963,18 +842,18 @@ server.spawnMissionComponent = server.spawnAddonComponent
 ---| 19 # defend
 
 ---@alias SWNotificationTypeEnum
----| 0 new_mission
----| 1 new_mission_critical
----| 2 failed_mission
----| 3 failed_mission_critical
----| 4 complete_mission
----| 5 network_connect
----| 6 network_disconnect
----| 7 network_info
----| 8 chat_message
----| 9 rewards
----| 10 network_info_critical
----| 11 research_complete
+---| 0 # new_mission
+---| 1 # new_mission_critical
+---| 2 # failed_mission
+---| 3 # failed_mission_critical
+---| 4 # complete_mission
+---| 5 # network_connect
+---| 6 # network_disconnect
+---| 7 # network_info
+---| 8 # chat_message
+---| 9 # rewards
+---| 10 # network_info_critical
+---| 11 # research_complete
 
 -- Messages player(s) using the in-game chat
 ---@param name string The display name of the user sending the message
@@ -982,8 +861,8 @@ server.spawnMissionComponent = server.spawnAddonComponent
 ---@param peerID number|nil The peerID of the player you want to message. -1 messages all players. If ignored, it will message all players
 function server.announce(name, message, peerID) end
 
----Sends a command that can be recieved by addons using the onCustomCommand callback
--- The peer_id sent will be -1
+-- Sends a command that can be recieved by addons using the onCustomCommand callback
+-- `onCustomCommand` will receive a peer ID of `-1`, with auth and admin both provided as `true`.
 ---@param message string the message to send, for example, "?prefix command arg1"
 function server.command(message) end
 
@@ -991,7 +870,7 @@ function server.command(message) end
 ---@param peerID number The peerID of the player you want to message. -1 messages all players
 ---@param title string The title of the notification
 ---@param message string The message you want to send the player(s)
----@param notificationType SWNotificationTypeEnum number, Changes how the notification looks. Refer to notificationTypes
+---@param notificationType SWNotificationTypeEnum Changes how the notification looks. Refer to notificationTypes
 function server.notify(peerID, title, message, notificationType) end
 
 -- Gets a unique ID to be used with other UI functions. Functions similar to a vehicle ID. A UI id can be used for multiple lines and map objects but each popup with a different text or position must have it's own ID
@@ -1006,8 +885,8 @@ function server.removeMapID(peer_id, ui_id) end
 -- Add a map marker for the specified peer(s). x, z represent the worldspace location of the marker, since the map is 2D a y coordinate is not required. If POSITION_TYPE is set to 1 or 2 (vehicle or object) then the marker will track the object/vehicle of object_id/vehicle_id and offset the position by parent_local_x, parent_local_z.
 ---@param peer_id number The peer id of the affected player. -1 affects all players
 ---@param ui_id integer The unique ui id to use
----@param position_type SWPositionTypeEnum number, Defines what type (object/vehicle) the marker should follow. Or if it should not follow anything. If the vehicle/object that object is set to follow cannot be found, this defaults to 0 meaning it becomes static, when the vehicle/object is reloacated, it reverts back to the previous value.
----@param marker_type SWMarkerTypeEnum number
+---@param position_type SWPositionTypeEnum Defines what type (object/vehicle) the marker should follow. Or if it should not follow anything. If the vehicle/object that object is set to follow cannot be found, this defaults to 0 meaning it becomes static, when the vehicle/object is reloacated, it reverts back to the previous value.
+---@param marker_type SWMarkerTypeEnum The type of map object to use. Changes the visible icon on the map
 ---@param x number Refer to World Space. Overrides parent_local_x
 ---@param z number Refer to World Space. Overrrides parent_local_z
 ---@param parent_local_x number The x offset relative to the parent. Refer to World Space
@@ -1031,7 +910,7 @@ function server.removeMapObject(peer_id, ui_id) end
 -- Adds a map label for the specified peer(s). Map labels appear under fog of war.
 ---@param peer_id number The peer id of the affected player. -1 affects all players
 ---@param ui_id integer The unique ui id to use
----@param LABEL_TYPE SWLabelTypeEnum number
+---@param LABEL_TYPE SWLabelTypeEnum The type of label to use. Changes the visible icon on the map
 ---@param name string The text that appears on the label
 ---@param x number Refer to World Space
 ---@param z number Refer to World Space
@@ -1111,7 +990,10 @@ function server.removePopup(peer_id, ui_id) end
 ---@field creature_type SWCreatureTypeEnum the creature type of the object
 ---@field scale number the scale of the object.
 
-
+-- Returns all players within the server.
+-- Note that the table is not guaranteed to be in a sequential order.
+-- Therefore, do not use `ipairs` or a `for i` loop to iterate through the table.
+-- Use `pairs` instead.
 ---@return table<number, SWPlayer> players
 function server.getPlayers() end
 
@@ -1143,7 +1025,7 @@ function server.getPlayerCharacterID(peer_id) end
 
 -- Spawns an object at the specified matrix
 ---@param matrix SWMatrix The matrix that the object should be spawned at
----@param  object_type SWObjectTypeEnum number, object type
+---@param object_type SWObjectTypeEnum The object to spawn
 ---@return number object_id, boolean is_success
 function server.spawnObject(matrix, object_type) end
 
@@ -1166,7 +1048,7 @@ function server.spawnCharacter(matrix, outfit_id) end
 
 -- Spawns an animal (whale, shark, kraken.)
 ---@param matrix SWMatrix The matrix the animal will be spawned at
----@param animal_type SWAnimalTypeEnum number
+---@param animal_type SWAnimalTypeEnum The animal type to spawn
 ---@param size_multiplier number The scale multiplier of the animal
 ---@return number object_id, boolean is_success
 function server.spawnAnimal(matrix, animal_type, size_multiplier) end
@@ -1276,19 +1158,19 @@ server.setCreatureTooltip = server.setCharacterTooltip
 
 -- Set the equipment a character has
 ---@param object_id number The unique id of the character
----@param slot SWSlotNumberEnum number
----@param EQUIPMENT_ID SWEquipmentTypeEnum number
+---@param slot SWSlotNumberEnum The slot to put the equipment in
+---@param equipment_id SWEquipmentTypeEnum The equipment to put in the slot
 ---@param is_active boolean Activates equipment such as strobe lights and fire exstinguishers.
 ---@param integer_value number|nil Depending on the item, sets the integer value (charges, ammo, channel, etc.)
 ---@param float_value number|nil Depending on the item, sets the float value (ammo, battery, etc.)
 ---@return boolean is_success
-function server.setCharacterItem(object_id, slot, EQUIPMENT_ID, is_active, integer_value, float_value) end
+function server.setCharacterItem(object_id, slot, equipment_id, is_active, integer_value, float_value) end
 
 -- Returns the id of the equipment that the character has in the provided slot
 ---@param object_id number The unique id of the character to check
----@param SLOT_NUMBER SWSlotNumberEnum number
+---@param slot_number SWSlotNumberEnum number
 ---@return number equipment_id, boolean is_success
-function server.getCharacterItem(object_id, SLOT_NUMBER) end
+function server.getCharacterItem(object_id, slot_number) end
 
 ---@alias SWOutfitTypeEnum
 ---| 0 # none
@@ -1890,12 +1772,12 @@ function server.pressVehicleButton(vehicle_id, button_name) end
 function server.setVehicleKeypad(vehicle_id, keypad_name, value) end
 
 -- Fills a fluid tank with the specified liquid
----@overload fun(vehicle_id: number, voxel_x: number, voxel_y: number, voxel_z: number, amount: number, FLUID_TYPE: SWTankFluidTypeEnum)
+---@overload fun(vehicle_id: number, voxel_x: number, voxel_y: number, voxel_z: number, amount: number, fluid_type: SWTankFluidTypeEnum)
 ---@param vehicle_id number The unique id of the vehicle
 ---@param tank_name string The name of the tank as it appears on the vehicle. Editable using the select tool in the workbench
 ---@param amount number The amount you want to fill the tank in litres
----@param FLUID_TYPE SWTankFluidTypeEnum number for fuel type
-function server.setVehicleTank(vehicle_id, tank_name, amount, FLUID_TYPE) end
+---@param fluid_type SWTankFluidTypeEnum The fluid type
+function server.setVehicleTank(vehicle_id, tank_name, amount, fluid_type) end
 
 -- Sets the charge level of the battery
 ---@overload fun(vehicle_id: number, voxel_x: number, voxel_y: number, voxel_z: number, amount: number)
@@ -1929,8 +1811,8 @@ function server.setVehicleWeapon(vehicle_id, weapon_name, amount) end
 ---@param voxel_y_2 number the y position of the second vehicle's rope anchor
 ---@param voxel_z_2 number the z position of the second vehicle's rope anchor
 ---@param length number the length of the rope
----@param ROPE_TYPE SWRopeTypeEnum the type of the rope
-function server.spawnVehicleRope(vehicle_id_1, voxel_x_1, voxel_y_1, voxel_z_1, vehicle_id_2, voxel_x_2, voxel_y_2, voxel_z_2, length, ROPE_TYPE) end
+---@param rope_type SWRopeTypeEnum the type of the rope
+function server.spawnVehicleRope(vehicle_id_1, voxel_x_1, voxel_y_1, voxel_z_1, vehicle_id_2, voxel_x_2, voxel_y_2, voxel_z_2, length, rope_type) end
 
 -- Returns the amount of surfaces that are on fire
 ---@param vehicle_id number The unique id of the vehicle
@@ -2201,9 +2083,9 @@ function server.clearOilSpill() end
 function server.spawnExplosion(transform_matrix, magnitude) end
 
 -- Used to set game settings
----@param GameSettingString SWGameSettingEnum
+---@param game_setting SWGameSettingEnum
 ---@param value boolean The game setting state. True or False
-function server.setGameSetting(GameSettingString, value) end
+function server.setGameSetting(game_setting, value) end
 
 -- Returns a table of the game settings indexed by the GAME_SETTING string, this can be accessed inline eg. server.getGameSettings().third_person
 ---@return SWGameSettings game_settings
@@ -2422,7 +2304,7 @@ function server.dlcArid() end
 function server.dlcSpace() end
 
 -- Returns the ID of the currently active seasonal event.
----@return SWEventIDEnum EVENT_ID the id of the current event.
+---@return SWEventIDEnum event_id the id of the current event.
 function server.getSeasonalEvent() end
 
 -- Log a message to the console output
