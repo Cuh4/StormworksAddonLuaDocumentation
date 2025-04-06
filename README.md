@@ -10,8 +10,6 @@
 ## 📚 Overview
 A simple repo containing the Stormworks Addon Lua documentation.
 
-All of the in-game documentation is ported to this repo via screenshots. They can be found in `/docs`. **These screenshots are no longer maintained.**
-
 For intellisense (auto-completion, etc) with Visual Studio Code and the Lua extension, `/docs/intellisense.lua` is what you're loooking for.
 
 ## 👨‍🦱 Credit
