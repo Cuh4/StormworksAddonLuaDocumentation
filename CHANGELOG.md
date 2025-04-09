@@ -1,9 +1,15 @@
 # 📚 | Changelog
-Last updated for game version: v1.13.4 (The Viewing Scope Update)  
+Last updated for game version: v1.14.2 (The Viewing Scope Update)  
 Note that even if the above version is outdated, it means no functions were added, changed or removed since the update.  
 Corrections and changes to the documentation may still be made after the version is outdated anyway.
 
 The following changelog entries are in DD/MM/YY format.
+
+## 09/04/2025
+- Added hidden deprecated functions: `server.getPlaylistIndexByName`, `server.getPlaylistPath` and `server.spawnMissionLocation`
+- Fixed typo with `server.spawnVehicleSavefile`
+- Added missing function `server.isLocationClear`
+- Added new v1.14.2 AI functions: `server.setAICharacterTeam`, `server.setAIVehicleTeam` and `server.setAICharacterTargetTeam`
 
 ## 06/04/2025
 - Removed unmaintained documentation screenshots in the repo.

@@ -702,6 +702,9 @@ function server.getAddonIndex(name) end
 ---@deprecated
 server.getPlaylistIndexCurrent = server.getAddonIndex
 
+---@deprecated
+server.getPlaylistIndexByName = server.getAddonIndex
+
 -- Get the internal index of a location in the specified addon by its name (this index is local to the addon)
 ---@param addon_index number The index of the addon as it is found in the missions folder. There is no set order and it may not be the same next execution.
 ---@param name string The name of the location as it appears in the addon
@@ -730,11 +733,17 @@ function server.spawnNamedAddonLocation(name, matrix) end
 ---@return SWMatrix matrix, boolean is_success
 function server.spawnAddonLocation(matrix, addon_index, location_index) end
 
+---@deprecated
+server.spawnMissionLocation = server.spawnAddonLocation
+
 -- Get the filepath of a addon
 ---@param addon_name string The name of the addon as it appears in the save file
 ---@param is_rom boolean Only true for missions that are made by the developers (or at least put in the file path "Stormworks\rom\data\missions")
 ---@return string path, boolean is_success
 function server.getAddonPath(addon_name, is_rom) end
+
+---@deprecated
+server.getPlaylistPath = server.getAddonPath
 
 -- Returns a list of all env mod zones
 ---@param tag string|nil Returns a list of all env mod zones that match the tag(s). Example: server.getZones("type=car,arctic")  Returns all zones that have exactly type=car AND arctic in it's tags
@@ -1574,13 +1583,21 @@ function server.spawnAddonVehicle(matrix, addon_index, component_id) end
 function server.spawnVehicle(matrix, save_name) end
 
 ---@deprecated
-server.spawnVehicleSaveFile = server.spawnVehicle
+server.spawnVehicleSavefile = server.spawnVehicle
 
 -- Despawns a vehicle from the world
 ---@param vehicle_id number The unique id of the vehicle
 ---@param is_instant boolean If the vehicle should be despawned instantly (true) or when no one is near (false)
 ---@return boolean is_success
 function server.despawnVehicle(vehicle_id, is_instant) end
+
+-- Returns if a location is clear of vehicles or not
+---@param transform_matrix SWMatrix The position of the location to check
+---@param size_x number The X size of the area to check
+---@param size_y number The Y size of the area to check
+---@param size_z number The Z size of the area to check
+---@return boolean is_clear
+function server.isLocationClear(transform_matrix, size_x, size_y, size_z) end
 
 -- Returns the position of the vehicle as a matrix, If the specified voxel is part of a sub-body, it will properly apply the previous' sub-body positions (As of v1.8.5)
 ---@param vehicle_id number The unique id of the vehicle
@@ -1917,6 +1934,24 @@ function server.setAITargetCharacter(object_id, target_object_id) end
 ---@param object_id number The unique id of the character
 ---@param target_vehicle_id number|nil target vehicle id to go target, set nil to clear its target
 function server.setAITargetVehicle(object_id, target_vehicle_id) end
+
+-- Sets the team of a character. Team cannot be lower than 0 or higher than 29
+-- Teams: 0 = Default, 29 = Prey Creatures, 28 = Predator Creatures, 27 = Zombies, 1 = Player Team, 2 = Enemy AI
+---@param object_id integer The unique id of the character
+---@param team integer The team to set the character to
+function server.setAICharacterTeam(object_id, team) end
+
+-- Sets the team of a vehicle. Team cannot be lower than 0 or higher than 29
+-- Teams: 0 = Default, 29 = Prey Creatures, 28 = Predator Creatures, 27 = Zombies, 1 = Player Team, 2 = Enemy AI
+---@param vehicle_id integer The unique id of the vehicle
+---@param team integer The team to set the vehicle to
+function server.setAIVehicleTeam(vehicle_id, team) end
+
+-- Sets if a character should target the provided team
+---@param object_id integer The unique id of the character
+---@param team integer The team to set the character to target
+---@param is_target boolean Whether the character should target the team or not
+function server.setAICharacterTargetTeam(object_id, team, is_target) end
 
 -------------------
 -- Game
