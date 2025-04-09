@@ -1910,6 +1910,38 @@ function server.setVehicleShowOnMap(vehicle_id, is_show_on_map) end
 ---@field y number target_y
 ---@field z number target_z
 
+---@alias SWAITeamEnum
+---| 0 # Default
+---| 1 # Player Team
+---| 2 # Enemy AI
+---| 3 # Unoccupied. Can be used as a custom team
+---| 4 # Unoccupied. Can be used as a custom team
+---| 5 # Unoccupied. Can be used as a custom team
+---| 6 # Unoccupied. Can be used as a custom team
+---| 7 # Unoccupied. Can be used as a custom team
+---| 8 # Unoccupied. Can be used as a custom team
+---| 9 # Unoccupied. Can be used as a custom team
+---| 10 # Unoccupied. Can be used as a custom team
+---| 11 # Unoccupied. Can be used as a custom team
+---| 12 # Unoccupied. Can be used as a custom team
+---| 13 # Unoccupied. Can be used as a custom team
+---| 14 # Unoccupied. Can be used as a custom team
+---| 15 # Unoccupied. Can be used as a custom team
+---| 16 # Unoccupied. Can be used as a custom team
+---| 17 # Unoccupied. Can be used as a custom team
+---| 18 # Unoccupied. Can be used as a custom team
+---| 19 # Unoccupied. Can be used as a custom team
+---| 20 # Unoccupied. Can be used as a custom team
+---| 21 # Unoccupied. Can be used as a custom team
+---| 22 # Unoccupied. Can be used as a custom team
+---| 23 # Unoccupied. Can be used as a custom team
+---| 24 # Unoccupied. Can be used as a custom team
+---| 25 # Unoccupied. Can be used as a custom team
+---| 26 # Unoccupied. Can be used as a custom team
+---| 27 # Zombies
+---| 28 # Predator Creatures
+---| 29 # Prey Creatures
+
 -- Sets the AI state of a character
 ---@param object_id number The unique id of the character
 ---@param AI_STATE number **Ship Pilot**: 0 = none, 1 = path to destination<br>**Heli Pilot**: 0 = None, 1 = path to destination, 2 = path to destination (accurate), 3 = gun run<br>**Plane Pilot**: 0 = none, 1 = path to destination, 2 = gun run<br>**Gunner**: 0 = none, 1 = fire at target<br>**Designator**: 0 = none, 1 = aim at target
@@ -1938,18 +1970,18 @@ function server.setAITargetVehicle(object_id, target_vehicle_id) end
 -- Sets the team of a character. Team cannot be lower than 0 or higher than 29
 -- Teams: 0 = Default, 29 = Prey Creatures, 28 = Predator Creatures, 27 = Zombies, 1 = Player Team, 2 = Enemy AI
 ---@param object_id integer The unique id of the character
----@param team integer The team to set the character to
+---@param team SWAITeamEnum The team to set the character to
 function server.setAICharacterTeam(object_id, team) end
 
 -- Sets the team of a vehicle. Team cannot be lower than 0 or higher than 29
 -- Teams: 0 = Default, 29 = Prey Creatures, 28 = Predator Creatures, 27 = Zombies, 1 = Player Team, 2 = Enemy AI
 ---@param vehicle_id integer The unique id of the vehicle
----@param team integer The team to set the vehicle to
+---@param team SWAITeamEnum The team to set the vehicle to
 function server.setAIVehicleTeam(vehicle_id, team) end
 
 -- Sets if a character should target the provided team
 ---@param object_id integer The unique id of the character
----@param team integer The team to set the character to target
+---@param team SWAITeamEnum The team to set the character to target
 ---@param is_target boolean Whether the character should target the team or not
 function server.setAICharacterTargetTeam(object_id, team, is_target) end
 

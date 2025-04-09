@@ -6,6 +6,7 @@ Corrections and changes to the documentation may still be made after the version
 The following changelog entries are in DD/MM/YY format.
 
 ## 09/04/2025
+- Added `SWAITeamEnum` enum.
 - Added hidden deprecated functions: `server.getPlaylistIndexByName`, `server.getPlaylistPath` and `server.spawnMissionLocation`
 - Fixed typo with `server.spawnVehicleSavefile`
 - Added missing function `server.isLocationClear`
