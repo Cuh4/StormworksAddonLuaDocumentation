@@ -5,6 +5,9 @@ Corrections and changes to the documentation may still be made after the version
 
 The following changelog entries are in DD/MM/YY format.
 
+## 14/04/2025
+- Added more information to `debug.log` description such as how to view the logs.
+
 ## 09/04/2025
 - Added `SWAITeamEnum` enum.
 - Added hidden deprecated functions: `server.getPlaylistIndexByName`, `server.getPlaylistPath` and `server.spawnMissionLocation`

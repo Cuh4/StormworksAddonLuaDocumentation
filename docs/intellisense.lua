@@ -2374,6 +2374,8 @@ function server.dlcSpace() end
 ---@return SWEventIDEnum event_id the id of the current event.
 function server.getSeasonalEvent() end
 
--- Log a message to the console output
+-- Log a message to DebugView.
+-- Requires [DebugView](https://learn.microsoft.com/en-us/sysinternals/downloads/debugview) to see the logs,
+-- although a more modern version like [DebugView++](https://github.com/CobaltFusion/DebugViewPP) is recommended.
 ---@param message string The string to log
 function debug.log(message) end
