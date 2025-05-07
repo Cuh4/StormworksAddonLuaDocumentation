@@ -5,6 +5,9 @@ Corrections and changes to the documentation may still be made after the version
 
 The following changelog entries are in DD/MM/YY format.
 
+## 07/05/2025
+- Fixed the messed up description for `server.getObjectSimulating`.
+
 ## 14/04/2025
 - Added more information to `debug.log` description such as how to view the logs.
 

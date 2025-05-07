@@ -1096,7 +1096,7 @@ function server.despawnObject(object_id, is_instant) end
 ---@return SWMatrix matrix, boolean is_success
 function server.getObjectPos(object_id) end
 
--- Sets the position of an object/character/animalGet the simulating state of a specified object
+-- Get the simulating state of a specified object
 ---@param object_id number The unique id of the object/character/animal
 ---@return boolean is_simulating, boolean is_success
 function server.getObjectSimulating(object_id) end
