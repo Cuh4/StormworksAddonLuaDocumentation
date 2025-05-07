@@ -10,7 +10,7 @@
 ## 📚 Overview
 A simple repo containing the Stormworks Addon Lua documentation.
 
-For intellisense (auto-completion, etc) with Visual Studio Code and the Lua extension, `/docs/intellisense.lua` is what you're loooking for.
+For intellisense (auto-completion, etc) with Visual Studio Code and the Lua extension, `/docs/intellisense.lua` is what you're looking for.
 
 ## 👨‍🦱 Credit
 - **[Cuh4](https://github.com/Cuh4)** - Maintainer
