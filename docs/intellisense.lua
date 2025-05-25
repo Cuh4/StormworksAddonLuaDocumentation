@@ -19,9 +19,12 @@
 ----------------------------------------
 
 --[[
-    Last updated for game version: v1.13.4 (The Viewing Scope Update)
-        Note that even if the above version is outdated, it means no functions were added, changed or removed since the update.
-        Corrections and changes to the documentation may still be made after the version is outdated anyway.
+    Last updated for game version: v1.14.3 (The Firefighter SCBA Update)
+        Note that even if the above version is outdated on the latest version of this repo, it means no 
+        functions were added, changed or removed from the game since the update.
+        
+        Corrections and changes to the documentation may still be made after the game version is outdated
+        anyway.
 
     Changelog available at the GitHub repo @ https://github.com/Cuh4/StormworksAddonLuaDocumentation.
 ]]
@@ -72,14 +75,16 @@ matrix = {}
 debug = {}
 
 --[[
-    A table used for saving numbers, strings, and booleans across addon reloads and sessions.<br>
-    Only access g_savedata after `onCreate` is called, otherwise values won't be what is expected.
+    A table used for saving tables, numbers, strings, and booleans across addon reloads and sessions.<br>
+    Only access g_savedata after `onCreate` is called, otherwise saved values won't be loaded yet.
 
-    g_savedata = {
-        example = "Hello World"
-    }
+    g_savedata = {}
     
     function onCreate(is_create)
+        if is_create then -- this is a new save
+            g_savedata.example = "Hello World"
+        end
+    
         print(g_savedata.example) -- "Hello World"
     end
 ]]
@@ -1469,6 +1474,7 @@ function server.getCharacterItem(object_id, slot_number) end
 ---| 146 # spider_crab [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
 ---| 147 # spiny_lobster [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
 ---| 148 # stone_crab [int = fish {0 = idle, 1 = flee, 2 = flop, 3 = dead}]
+---| 149 # firefighter_scba
 
 -------------------
 -- Vehicles

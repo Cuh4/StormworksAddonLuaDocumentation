@@ -1,9 +1,16 @@
 # 📚 | Changelog
-Last updated for game version: v1.14.2 (The Viewing Scope Update)  
-Note that even if the above version is outdated, it means no functions were added, changed or removed since the update.  
-Corrections and changes to the documentation may still be made after the version is outdated anyway.
+Last updated for game version: v1.14.3 (The Firefighter SCBA Update)
+Note that even if the above version is outdated on the latest version of this repo, it means no 
+functions were added, changed or removed from the game since the update.
+
+Corrections and changes to the documentation may still be made after the game version is outdated
+anyway.
 
 The following changelog entries are in DD/MM/YY format.
+
+## 25/05/2025
+- Added new `firefighter_scba` equipment type.
+- Refactored a few comments.
 
 ## 07/05/2025
 - Fixed the messed up description for `server.getObjectSimulating`.
