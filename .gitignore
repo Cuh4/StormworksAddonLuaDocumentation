@@ -1,4 +1,4 @@
 # Used to collect up all documented functions which is then formatted into a Lua table
 # This is used for comparison with in-game functions so I don't have to read the Stormworks
 # addon lua docs every update.
-parse.py
+dump.txt
