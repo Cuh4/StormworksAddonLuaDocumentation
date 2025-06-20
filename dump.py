@@ -20,12 +20,14 @@ limitations under the License.
 """
 
 # rushed and hardcoded, but works
+# tested on python 3.13, may work on earlier versions
 
 # // Main
 with open("docs/intellisense.lua") as f:
     lines = f.readlines()
     
 funcs: list[str] = []
+callbacks: list[str] = []
 
 for line in lines:
     if line.startswith("server."):
@@ -35,6 +37,13 @@ for line in lines:
     if line.startswith("function") and not line.startswith("function on") and not line.startswith("function httpReply"):
         func_name = line.split()[1].split("(")[0]
         funcs.append(func_name)
+        
+    if line.startswith("function on") or line.startswith("function httpReply"):
+        func_name = line.split()[1].split("(")[0]
+        callbacks.append(func_name)
 
-with open("dump.txt", "w") as f:
+with open("dump_functions.txt", "w") as f:
     f.write("\n".join(funcs))
+    
+with open("dump_callbacks.txt", "w") as f:
+    f.write("\n".join(callbacks))
