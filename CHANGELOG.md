@@ -8,6 +8,9 @@ anyway.
 
 The following changelog entries are in DD/MM/YY format.
 
+## 10/07/2025
+- Fix incorrect fact in `server.setPopupScreen` (-1 is top for vertical offset, not bottom)
+
 ## 25/05/2025
 - Added new `firefighter_scba` equipment type.
 - Refactored a few comments.
