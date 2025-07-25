@@ -1183,7 +1183,7 @@ function server.setCharacterItem(object_id, slot, equipment_id, is_active, integ
 -- Returns the id of the equipment that the character has in the provided slot
 ---@param object_id number The unique id of the character to check
 ---@param slot_number SWSlotNumberEnum number
----@return number equipment_id, boolean is_success
+---@return number SWEquipmentTypeEnum, boolean is_success
 function server.getCharacterItem(object_id, slot_number) end
 
 ---@alias SWOutfitTypeEnum

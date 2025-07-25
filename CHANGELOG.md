@@ -8,8 +8,11 @@ anyway.
 
 The following changelog entries are in DD/MM/YY format.
 
+## 25/07/2025
+- `SWEquipmentTypeEnum` is now the return type instead of `integer` for `server.getCharacterItem`.
+
 ## 10/07/2025
-- Fix incorrect fact in `server.setPopupScreen` (-1 is top for vertical offset, not bottom)
+- Fix incorrect fact in `server.setPopupScreen` (-1 is top for vertical offset, not bottom).
 
 ## 25/05/2025
 - Added new `firefighter_scba` equipment type.
