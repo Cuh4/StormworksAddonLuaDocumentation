@@ -8,6 +8,9 @@ anyway.
 
 The following changelog entries are in DD/MM/YY format.
 
+## 28/09/2025
+- Fix invalid return annotation for `server.getCharacterItem` (return type and name were swapped).
+
 ## 25/07/2025
 - `SWEquipmentTypeEnum` is now the return type instead of `integer` for `server.getCharacterItem`.
 
