@@ -8,6 +8,9 @@ anyway.
 
 The following changelog entries are in DD/MM/YY format.
 
+## 12/10/2025
+- Added missing resources in `SWResourceTypeEnum`.
+
 ## 28/09/2025
 - Fix invalid return annotation for `server.getCharacterItem` (return type and name were swapped).
 

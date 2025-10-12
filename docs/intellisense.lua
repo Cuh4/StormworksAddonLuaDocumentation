@@ -597,6 +597,30 @@ function onOilSpill(tile_x, tile_z, delta, total, vehicle_id) end
 ---| 53 # tubeshoulders_fish
 ---| 54 # viperfish
 ---| 55 # yellowfin_tuna
+---| 56 # blue_crab
+---| 57 # brown_box_crab
+---| 58 # coconut_crab
+---| 59 # dungeness_crab
+---| 60 # furry_lobster
+---| 61 # homarus_americanus -- Atlantic Lobster
+---| 62 # homarus_gammarus -- Common Lobster
+---| 63 # horseshoe_crab
+---| 64 # jasus_edwardsii -- Red Rock Lobster
+---| 65 # jasus_lalandii -- Cape Rock Lobster
+---| 66 # jonah_crab
+---| 67 # king_crab
+---| 68 # mud_crab
+---| 69 # munida_lobster
+---| 70 # ornate_rock_lobster
+---| 71 # panulirus_interruptus
+---| 72 # red_king_crab
+---| 73 # reef_lobster
+---| 74 # slipper_lobster
+---| 75 # snow_crab
+---| 76 # southern_rock_lobster
+---| 77 # spider_crab
+---| 78 # spiny_lobster
+---| 79 # stone_crab
 
 ---@alias SWGameSettingEnum
 ---| "photo_mode"
