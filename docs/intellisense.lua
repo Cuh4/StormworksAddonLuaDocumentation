@@ -959,7 +959,7 @@ function server.addMapLabel(peer_id, ui_id, LABEL_TYPE, name, x, z) end
 ---@param ui_id integer The ui id to use
 function server.removeMapLabel(peer_id, ui_id) end
 
--- Adds a map line between two world space matrices with the specified ui_id for the specified pee(s). Custom colour defaults to red.
+-- Adds a map line between two world space matrices with the specified ui_id for the specified peer(s). Custom colour defaults to red.
 ---@param peer_id number The peer id of the affected player. -1 affects all players
 ---@param ui_id integer The ui id to use
 ---@param start_matrix SWMatrix Line start position. worldspace
@@ -976,7 +976,8 @@ function server.addMapLine(peer_id, ui_id, start_matrix, end_matrix, width, r, g
 ---@param ui_id integer The ui id to use
 function server.removeMapLine(peer_id, ui_id) end
 
--- Displays a tooltip-like popup either in the world. If the popup does not exist, it will be created.
+-- Displays a tooltip-like popup in the world.<br>
+-- If a popup with the same `ui_id` does not exist, it will be created, otherwise the existing one will be modified.
 ---@param peer_id number The peer id of the affected player. -1 affects all players
 ---@param ui_id integer A unique ui_id to be used with this popup. You cannot re-use ui ids for popups, unless they have the same text and position, then they can be used for multiple players.
 ---@param name string ? Appears to do nothing. Can be left as an empty string: ""
@@ -990,7 +991,8 @@ function server.removeMapLine(peer_id, ui_id) end
 ---@param object_parent_id number? (optional) The object to attach the popup to
 function server.setPopup(peer_id, ui_id, name, is_show, text, x, y, z, render_distance, vehicle_parent_id, object_parent_id) end
 
--- Creates a popup that appears on the player's screen, regardless of their look direction and location in the world.
+-- Creates a popup that appears on the player's screen, regardless of their look direction and location in the world.<br>
+-- If a popup with the same `ui_id` does not exist, it will be created, otherwise the existing one will be modified.
 ---@param peer_id number The peer id of the affected player. -1 affects all players
 ---@param ui_id integer A unique ui_id to be used with this popup. You cannot re-use ui ids for popups. One ui id per popup.
 ---@param name string ?

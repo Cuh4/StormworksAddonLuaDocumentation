@@ -8,6 +8,9 @@ anyway.
 
 The following changelog entries are in DD/MM/YY format.
 
+## 27/10/2025
+- Fixed typos in `server.setPopup` and `server.addMapLine` descriptions.
+
 ## 12/10/2025
 - Added missing resources in `SWResourceTypeEnum`.
 
