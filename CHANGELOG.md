@@ -8,6 +8,9 @@ anyway.
 
 The following changelog entries are in DD/MM/YY format.
 
+## 30/12/2025
+- Fix inaccuracy with `server.spawnAddonComponent`'s `component_index` argument description. `component_index` cannot be found via `server.getLocationComponentData`!
+
 ## 27/10/2025
 - Fixed typos in `server.setPopup` and `server.addMapLine` descriptions.
 

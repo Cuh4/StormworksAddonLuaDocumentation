@@ -817,7 +817,7 @@ function server.getLocationComponentData(addon_index, location_index, component_
 ---@param matrix SWMatrix The matrix the mission object should be spawned at
 ---@param addon_index number The index of the addon as it is found in the missions folder. There is no set order and it may not be the same next execution.
 ---@param location_index number The unique index of the location that the component is in
----@param component_index number The index of the component that can be read from the COMPONENT_DATA table using server.getLocationComponentData()
+---@param component_index number The index of the component
 ---@param parent_vehicle_id number? optional id of the vehicle to parent the fire or zone component to,
 ---@return SWAddonComponentSpawned component, boolean is_success
 function server.spawnAddonComponent(matrix, addon_index, location_index, component_index, parent_vehicle_id) end
